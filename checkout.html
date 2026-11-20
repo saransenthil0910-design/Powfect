@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect </title>
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous">
+    </script>
+
+
+    <style>
+
+        /* ===============================
+           RESET
+        ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f8f0df;
+
+            color: #333;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ===============================
+           NAVBAR
+        ================================ */
+
+        .navbar {
+
+            width: 100%;
+
+            min-height: 75px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            padding: 15px 5%;
+
+            background-color: #fffaf0;
+
+            box-shadow:
+                2px 2px 20px
+                rgba(185, 87, 45, 0.35);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .logo-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: #b9572d;
+
+            font-size: 24px;
+
+            padding: 5px;
+
+            cursor: pointer;
+
+            line-height: 1;
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #b9572d;
+
+            white-space: nowrap;
+        }
+
+
+        .logo span:first-child {
+
+            font-size: 30px;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: #333;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            padding: 8px 0;
+
+            white-space: nowrap;
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background-color: #b9572d;
+
+            transition: width 0.3s ease;
+        }
+
+
+        .nav-links a:hover::after {
+
+            width: 100%;
+        }
+
+
+        /* ===============================
+           CART ICON
+        ================================ */
+
+        .cart-link {
+
+            position: relative;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-decoration: none;
+
+            color: #b9572d;
+
+            flex-shrink: 0;
+
+            transition: 0.3s ease;
+        }
+
+
+        .cart-link:hover {
+
+            color: #8f3f1f;
+
+            transform: translateY(-2px);
+        }
+
+
+        .cart-link i {
+
+            font-size: 25px;
+        }
+
+
+        .cart-count {
+
+            position: absolute;
+
+            top: -5px;
+
+            right: -5px;
+
+            min-width: 20px;
+
+            height: 20px;
+
+            padding: 0 5px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background-color: #b9572d;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            border: 2px solid #fffaf0;
+
+            line-height: 1;
+        }
+
+
+        /* ===============================
+           CHECKOUT PAGE
+        ================================ */
+
+        .checkout-page {
+
+            width: 90%;
+
+            max-width: 1150px;
+
+            margin: 50px auto;
+        }
+
+
+        .checkout-title {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .checkout-title h1 {
+
+            font-size: 38px;
+
+            color: #5b321d;
+        }
+
+
+        .checkout-title p {
+
+            color: #777;
+
+            margin-top: 8px;
+        }
+
+
+        /* ===============================
+           CHECKOUT LAYOUT
+        ================================ */
+
+        .checkout-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 350px;
+
+            gap: 30px;
+
+            align-items: start;
+        }
+
+
+        /* ===============================
+           FORM
+        ================================ */
+
+        .checkout-form {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.08);
+        }
+
+
+        .checkout-form h2 {
+
+            color: #5b321d;
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+            color: #5b321d;
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            box-sizing: border-box;
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+
+            border-color: #8a5735;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .form-group textarea {
+
+            min-height: 100px;
+
+            resize: vertical;
+        }
+
+
+        /* ===============================
+           ORDER SUMMARY
+        ================================ */
+
+        .checkout-summary {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.08);
+
+            position: sticky;
+
+            top: 95px;
+        }
+
+
+        .checkout-summary h2 {
+
+            color: #5b321d;
+
+            margin-bottom: 20px;
+        }
+
+
+        .order-item {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .order-item-name {
+
+            color: #555;
+        }
+
+
+        .order-item-price {
+
+            font-weight: bold;
+
+            color: #5b321d;
+
+            white-space: nowrap;
+        }
+
+
+        .summary-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin: 14px 0;
+        }
+
+
+        .summary-total {
+
+            border-top: 1px solid #ddd;
+
+            padding-top: 18px;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            color: #5b321d;
+        }
+
+
+        /* ===============================
+           PLACE ORDER
+        ================================ */
+
+        .place-order-btn {
+
+            width: 100%;
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #6b3e26;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .place-order-btn:hover {
+
+            background: #4f2c1b;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ===============================
+           MOBILE
+        ================================ */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+
+                min-height: 65px;
+
+                padding: 12px 5%;
+
+                gap: 0;
+            }
+
+
+            .logo-area {
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 10px;
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+
+                flex-shrink: 0;
+
+                font-size: 24px;
+
+                color: #b9572d;
+            }
+
+
+            .logo {
+
+                font-size: 21px;
+
+                gap: 5px;
+            }
+
+
+            .logo span:first-child {
+
+                font-size: 23px;
+            }
+
+
+            .nav-links {
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 220px;
+
+                background: #fffaf0;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                justify-content: flex-start;
+
+                gap: 0;
+
+                padding: 18px 20px;
+
+                box-shadow:
+                    4px 8px 18px
+                    rgba(0, 0, 0, 0.15);
+
+                border-radius:
+                    0 0 12px 0;
+            }
+
+
+            .nav-links.active {
+
+                display: flex;
+            }
+
+
+            .nav-links li {
+
+                width: 100%;
+            }
+
+
+            .nav-links a {
+
+                width: 100%;
+
+                display: block;
+
+                padding: 12px 5px;
+
+                font-size: 15px;
+            }
+
+
+            .cart-link {
+
+                margin-left: auto;
+
+                width: 42px;
+
+                height: 42px;
+            }
+
+
+            .cart-link i {
+
+                font-size: 25px;
+            }
+
+
+            .cart-count {
+
+                top: -4px;
+
+                right: -4px;
+            }
+
+
+            /* CHECKOUT */
+
+            .checkout-page {
+
+                width: 92%;
+
+                margin: 35px auto;
+            }
+
+
+            .checkout-title {
+
+                margin-bottom: 25px;
+            }
+
+
+            .checkout-title h1 {
+
+                font-size: 30px;
+            }
+
+
+            .checkout-title p {
+
+                font-size: 14px;
+
+                line-height: 1.5;
+            }
+
+
+            .checkout-layout {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+
+            .checkout-form {
+
+                padding: 20px;
+            }
+
+
+            .checkout-form h2 {
+
+                font-size: 21px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            .checkout-summary {
+
+                position: static;
+
+                padding: 20px;
+            }
+
+
+            .summary-total {
+
+                font-size: 19px;
+            }
+
+
+            .place-order-btn {
+
+                font-size: 15px;
+            }
+        }
+
+
+        /* ===============================
+           SMALL MOBILE
+        ================================ */
+
+        @media (max-width: 400px) {
+
+            .navbar {
+
+                padding: 12px 4%;
+            }
+
+
+            .logo {
+
+                font-size: 19px;
+            }
+
+
+            .logo span:first-child {
+
+                font-size: 21px;
+            }
+
+
+            .menu-toggle {
+
+                font-size: 22px;
+            }
+
+
+            .cart-link {
+
+                width: 40px;
+
+                height: 40px;
+            }
+
+
+            .cart-link i {
+
+                font-size: 23px;
+            }
+
+
+            .cart-count {
+
+                min-width: 19px;
+
+                height: 19px;
+
+                font-size: 10px;
+            }
+
+
+            .checkout-form {
+
+                padding: 16px;
+            }
+
+
+            .checkout-summary {
+
+                padding: 17px;
+            }
+
+
+            .checkout-title h1 {
+
+                font-size: 27px;
+            }
+
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+
+                padding: 12px;
+
+                font-size: 14px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===============================
+         NAVBAR
+    ================================ -->
+
+    <nav class="navbar">
+
+
+        <div class="logo-area">
+
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="logo">
+
+                <span>🐾</span>
+
+                <span>Powfect</span>
+
+            </div>
+
+
+        </div>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="home.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="Blog.html">
+                    Blogs
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+
+        <a
+            href="cart.html"
+            class="cart-link"
+        >
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span
+                class="cart-count"
+                id="cartCount"
+            >
+                0
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- ===============================
+         CHECKOUT
+    ================================ -->
+
+    <main class="checkout-page">
+
+
+        <section class="checkout-title">
+
+            <h1>
+                Checkout
+            </h1>
+
+            <p>
+                Complete your details to place your order
+            </p>
+
+        </section>
+
+
+        <div class="checkout-layout">
+
+
+            <!-- ===============================
+                 CUSTOMER FORM
+            ================================ -->
+
+            <form
+                class="checkout-form"
+                id="checkoutForm"
+            >
+
+
+                <h2>
+                    Delivery Details
+                </h2>
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="Enter your complete address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="Enter city"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="pincode">
+                            Pincode
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="Enter pincode"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="payment">
+                        Payment Method
+                    </label>
+
+                    <select
+                        id="payment"
+                        required
+                    >
+
+                        <option value="">
+                            Select Payment Method
+                        </option>
+
+                        <option value="cod">
+                            Cash on Delivery
+                        </option>
+
+                        <option value="online">
+                            Online Payment
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="place-order-btn"
+                >
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Place Order
+
+                </button>
+
+
+            </form>
+
+
+            <!-- ===============================
+                 ORDER SUMMARY
+            ================================ -->
+
+            <div class="checkout-summary">
+
+
+                <h2>
+                    Your Order
+                </h2>
+
+
+                <div id="orderItems">
+
+                    <!-- JavaScript -->
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="subtotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <span>
+                        Free
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="total">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- EMAILJS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+
+    <!-- CHECKOUT JS -->
+
+    <script src="checkout.js"></script>
+
+
+</body>
+
+</html>

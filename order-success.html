@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect </title>
+
+
+    <!-- FONT AWESOME -->
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous">
+    </script>
+
+
+    <style>
+
+        /* ===============================
+           BODY
+        ================================ */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #fffaf0;
+
+            color: #333;
+
+        }
+
+
+
+        /* ===============================
+           NAVBAR
+        ================================ */
+
+        .navbar {
+
+            width: 100%;
+
+            min-height: 70px;
+
+            padding: 0 5%;
+
+            background: #fffaf0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 1px solid #eee1d2;
+
+            position: relative;
+
+        }
+
+
+
+        /* ===============================
+           LOGO AREA
+        ================================ */
+
+        .logo-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #b9572d;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+
+        }
+
+
+        .logo span:first-child {
+
+            font-size: 27px;
+
+        }
+
+
+
+        /* ===============================
+           MENU TOGGLE
+        ================================ */
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: #b9572d;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            padding: 5px;
+
+        }
+
+
+
+        /* ===============================
+           NAV LINKS
+        ================================ */
+
+        .nav-links {
+
+            list-style: none;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links li {
+
+            list-style: none;
+
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #5b321d;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #b9572d;
+
+        }
+
+
+
+        /* ===============================
+           CART ICON
+        ================================ */
+
+        .cart-link {
+
+            position: relative;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-decoration: none;
+
+            color: #b9572d;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .cart-link i {
+
+            font-size: 25px;
+
+        }
+
+
+        .cart-count {
+
+            position: absolute;
+
+            top: -5px;
+
+            right: -5px;
+
+            min-width: 20px;
+
+            height: 20px;
+
+            padding: 0 5px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background-color: #b9572d;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            border: 2px solid #fffaf0;
+
+            line-height: 1;
+
+        }
+
+
+
+        /* ===============================
+           SUCCESS PAGE
+        ================================ */
+
+        .success-page {
+
+            width: 90%;
+
+            max-width: 800px;
+
+            margin: 60px auto;
+
+            text-align: center;
+
+        }
+
+
+        .success-box {
+
+            background: white;
+
+            padding: 45px 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+
+        /* ===============================
+           SUCCESS ICON
+        ================================ */
+
+        .success-icon {
+
+            width: 85px;
+
+            height: 85px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #6b3e26;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 40px;
+
+        }
+
+
+        .success-box h1 {
+
+            color: #5b321d;
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .success-message {
+
+            color: #777;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+        }
+
+
+
+        /* ===============================
+           ORDER DETAILS
+        ================================ */
+
+        .order-details {
+
+            text-align: left;
+
+            background: #faf6ef;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .order-details h2 {
+
+            color: #5b321d;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .detail-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid #e5ddd3;
+
+        }
+
+
+        .detail-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .detail-label {
+
+            font-weight: bold;
+
+            color: #5b321d;
+
+        }
+
+
+        .detail-value {
+
+            color: #555;
+
+            text-align: right;
+
+        }
+
+
+
+        /* ===============================
+           PRODUCTS
+        ================================ */
+
+        .ordered-products {
+
+            margin-top: 25px;
+
+            text-align: left;
+
+        }
+
+
+        .ordered-products h2 {
+
+            color: #5b321d;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .ordered-product {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 12px;
+
+            margin-bottom: 10px;
+
+            background: #faf6ef;
+
+            border-radius: 10px;
+
+        }
+
+
+        .ordered-product-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .ordered-product img {
+
+            width: 60px;
+
+            height: 60px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+        }
+
+
+        .ordered-product-name {
+
+            color: #5b321d;
+
+            font-weight: bold;
+
+        }
+
+
+        .ordered-product-quantity {
+
+            color: #777;
+
+            font-size: 14px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .ordered-product-price {
+
+            font-weight: bold;
+
+            color: #5b321d;
+
+        }
+
+
+
+        /* ===============================
+           TOTAL
+        ================================ */
+
+        .order-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top: 2px solid #ddd;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #5b321d;
+
+        }
+
+
+
+        /* ===============================
+           BUTTONS
+        ================================ */
+
+        .success-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .success-buttons a {
+
+            text-decoration: none;
+
+            padding: 13px 22px;
+
+            border-radius: 9px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .continue-shopping {
+
+            background: #6b3e26;
+
+            color: white;
+
+        }
+
+
+        .go-home {
+
+            background: #eee4d8;
+
+            color: #5b321d;
+
+        }
+
+
+        .success-buttons a:hover {
+
+            opacity: 0.85;
+
+        }
+
+
+
+        /* ===============================
+           MOBILE
+        ================================ */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+
+                min-height: 65px;
+
+                padding: 0 18px;
+
+            }
+
+
+            .logo-area {
+
+                gap: 8px;
+
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+
+            }
+
+
+            .logo {
+
+                font-size: 22px;
+
+            }
+
+
+            .logo span:first-child {
+
+                font-size: 24px;
+
+            }
+
+
+            .nav-links {
+
+                display: none;
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: #fffaf0;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 0;
+
+                padding: 10px 0;
+
+                box-shadow:
+                    0 8px 15px rgba(0, 0, 0, 0.08);
+
+                z-index: 1000;
+
+            }
+
+
+            .nav-links.active {
+
+                display: flex;
+
+            }
+
+
+            .nav-links li {
+
+                width: 100%;
+
+            }
+
+
+            .nav-links a {
+
+                display: block;
+
+                width: 100%;
+
+                padding: 14px 25px;
+
+            }
+
+
+            .nav-links a:hover {
+
+                background: #f8f0df;
+
+            }
+
+
+            .cart-link {
+
+                width: 40px;
+
+                height: 40px;
+
+            }
+
+
+            .cart-link i {
+
+                font-size: 24px;
+
+            }
+
+
+            .cart-count {
+
+                top: -4px;
+
+                right: -4px;
+
+            }
+
+
+
+            /* SUCCESS */
+
+            .success-page {
+
+                width: 94%;
+
+                margin: 35px auto;
+
+            }
+
+
+            .success-box {
+
+                padding: 30px 20px;
+
+            }
+
+
+            .success-box h1 {
+
+                font-size: 28px;
+
+                line-height: 1.3;
+
+            }
+
+
+            .success-message {
+
+                font-size: 15px;
+
+            }
+
+
+            .detail-row {
+
+                flex-direction: column;
+
+                gap: 4px;
+
+            }
+
+
+            .detail-value {
+
+                text-align: left;
+
+                word-break: break-word;
+
+            }
+
+
+            .ordered-product {
+
+                align-items: flex-start;
+
+            }
+
+
+            .ordered-product-left {
+
+                min-width: 0;
+
+            }
+
+
+            .ordered-product-name {
+
+                word-break: break-word;
+
+            }
+
+
+            .ordered-product-price {
+
+                white-space: nowrap;
+
+            }
+
+
+            .success-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .success-buttons a {
+
+                width: 100%;
+
+                text-align: center;
+
+            }
+
+        }
+
+
+
+        /* ===============================
+           SMALL MOBILE
+        ================================ */
+
+        @media (max-width: 400px) {
+
+            .success-box {
+
+                padding: 25px 15px;
+
+            }
+
+
+            .success-icon {
+
+                width: 75px;
+
+                height: 75px;
+
+                font-size: 34px;
+
+            }
+
+
+            .success-box h1 {
+
+                font-size: 25px;
+
+            }
+
+
+            .ordered-product img {
+
+                width: 50px;
+
+                height: 50px;
+
+            }
+
+
+            .ordered-product {
+
+                gap: 8px;
+
+                padding: 10px;
+
+            }
+
+
+            .order-total {
+
+                font-size: 19px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===============================
+         NAVBAR
+    ================================ -->
+
+    <nav class="navbar">
+
+
+        <div class="logo-area">
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <span>🐾</span>
+
+                <span>Powfect</span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAV LINKS -->
+
+        <ul
+            class="nav-links"
+            id="navLinks">
+
+
+            <li>
+
+                <a href="home.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="products.html">
+
+                    Products
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="Blog.html">
+
+                    Blogs
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About Us
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="my-orders.html">
+
+                    My Orders
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+
+
+        <!-- CART -->
+
+        <a
+            href="cart.html"
+            class="cart-link">
+
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+
+            <span
+                class="cart-count"
+                id="cartCount">
+
+                0
+
+            </span>
+
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- ===============================
+         SUCCESS CONTENT
+    ================================ -->
+
+    <main class="success-page">
+
+
+        <div class="success-box">
+
+
+            <!-- SUCCESS ICON -->
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <h1>
+
+                Order Placed Successfully!
+
+            </h1>
+
+
+
+            <!-- MESSAGE -->
+
+            <p class="success-message">
+
+                Thank you for choosing Powfect.
+                Your order has been successfully placed.
+
+            </p>
+
+
+
+            <!-- ORDER DETAILS -->
+
+            <div
+                class="order-details"
+                id="orderDetails">
+
+                <!-- JavaScript will load order details -->
+
+            </div>
+
+
+
+            <!-- ORDERED PRODUCTS -->
+
+            <div
+                class="ordered-products"
+                id="orderedProducts">
+
+                <!-- JavaScript will load products -->
+
+            </div>
+
+
+
+            <!-- TOTAL -->
+
+            <div
+                class="order-total"
+                id="orderTotal">
+
+                <!-- JavaScript will load total -->
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="success-buttons">
+
+
+                <a
+                    href="products.html"
+                    class="continue-shopping">
+
+                    Continue Shopping
+
+                </a>
+
+
+                <a
+                    href="home.html"
+                    class="go-home">
+
+                    Back to Home
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ===============================
+         ORDER SUCCESS JS
+    ================================ -->
+
+    <script src="order-success.js"></script>
+
+
+
+    <!-- ===============================
+         MOBILE MENU JS
+    ================================ -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        if (menuToggle && navLinks) {
+
+
+            menuToggle.addEventListener(
+                "click",
+                function () {
+
+                    navLinks.classList.toggle("active");
+
+                }
+            );
+
+
+            navLinks
+                .querySelectorAll("a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navLinks.classList.remove("active");
+
+                        }
+                    );
+
+                });
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !navLinks.contains(event.target) &&
+                        !menuToggle.contains(event.target)
+                    ) {
+
+                        navLinks.classList.remove("active");
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        /* ===============================
+           CART COUNT
+        ================================ */
+
+        function updateCartCount() {
+
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem("powfectCart")
+                ) || [];
+
+
+            let totalQuantity = 0;
+
+
+            cart.forEach(function (product) {
+
+                totalQuantity +=
+                    Number(product.quantity) || 0;
+
+            });
+
+
+            const cartCount =
+                document.getElementById("cartCount");
+
+
+            if (cartCount) {
+
+                cartCount.textContent =
+                    totalQuantity;
+
+            }
+
+        }
+
+
+        updateCartCount();
+
+    </script>
+
+
+</body>
+
+</html>

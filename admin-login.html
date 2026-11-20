@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Powfect</title>
+
+    <link rel="stylesheet"
+        href="product.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #faf7ef;
+        }
+
+        /* ========================================
+           LOGIN PAGE
+        ======================================== */
+
+        .admin-login-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+        }
+
+
+        /* ========================================
+           LOGIN CARD
+        ======================================== */
+
+        .admin-login-card {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        /* ========================================
+           LOGO
+        ======================================== */
+
+        .admin-logo {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .admin-logo i {
+
+            font-size: 42px;
+
+            color: #5a3825;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .admin-logo h1 {
+
+            margin: 0;
+
+            color: #5a3825;
+
+            font-size: 32px;
+
+        }
+
+
+        .admin-logo p {
+
+            margin-top: 8px;
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ========================================
+           TITLE
+        ======================================== */
+
+        .login-title {
+
+            text-align: center;
+
+            color: #5a3825;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .login-title h2 {
+
+            margin: 0 0 8px;
+
+        }
+
+
+        .login-title p {
+
+            margin: 0;
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ========================================
+           INPUT GROUP
+        ======================================== */
+
+        .input-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+
+            color: #5a3825;
+
+        }
+
+
+        .input-box {
+
+            position: relative;
+
+        }
+
+
+        .input-box i {
+
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #8b6b55;
+
+        }
+
+
+        .input-box input {
+
+            width: 100%;
+
+            padding: 13px 14px 13px 42px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+        }
+
+
+        .input-box input:focus {
+
+            border-color: #5a3825;
+
+            box-shadow:
+                0 0 0 2px rgba(90, 56, 37, 0.1);
+
+        }
+
+
+        /* ========================================
+           LOGIN BUTTON
+        ======================================== */
+
+        .login-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background: #5a3825;
+
+            color: white;
+
+            padding: 14px;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            margin-top: 5px;
+
+        }
+
+
+        .login-btn:hover {
+
+            background: #402719;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .login-btn i {
+
+            margin-right: 7px;
+
+        }
+
+
+        /* ========================================
+           ERROR MESSAGE
+        ======================================== */
+
+        .login-error {
+
+            display: none;
+
+            background: #ffe8e8;
+
+            color: #c62828;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 18px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        .login-error.show {
+
+            display: block;
+
+        }
+
+
+        /* ========================================
+           BACK HOME
+        ======================================== */
+
+        .back-home {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #5a3825;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+        }
+
+
+        .back-home:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* ========================================
+           DEMO NOTE
+        ======================================== */
+
+        .demo-note {
+
+            margin-top: 25px;
+
+            padding: 12px;
+
+            background: #faf7ef;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            color: #777;
+
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 500px) {
+
+            .admin-login-card {
+
+                padding: 28px 22px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="admin-login-page">
+
+
+        <div class="admin-login-card">
+
+
+            <!-- LOGO -->
+
+            <div class="admin-logo">
+
+                <i class="fa-solid fa-paw"></i>
+
+                <h1>
+                    Powfect
+                </h1>
+
+                <p>
+                    Pet Care & Store
+                </p>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="login-title">
+
+                <h2>
+                    Admin Login
+                </h2>
+
+                <p>
+                    Login to manage customer orders
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN ERROR -->
+
+            <div
+                class="login-error"
+                id="loginError"
+            >
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                Invalid username or password
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="adminLoginForm">
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+            <!-- BACK HOME -->
+
+            <a
+                href="home.html"
+                class="back-home"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+
+            <!-- DEMO NOTE -->
+
+            <div class="demo-note">
+
+                Admin demo login is configured
+                for this portfolio project.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="admin-login.js"></script>
+
+</body>
+
+</html>

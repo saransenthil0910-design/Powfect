@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect </title>
+
+    <link rel="icon" href="Images/company logo.jpeg">
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: "Poppins", sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(88, 48, 28, 0.25),
+                    rgba(88, 48, 28, 0.25)
+                ),
+                #f9ede7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px 15px;
+
+        }
+
+
+        /* PAWS */
+
+        .paw {
+
+            position: fixed;
+
+            color: rgba(139, 69, 19, 0.08);
+
+            font-size: 80px;
+
+        }
+
+        .paw1 {
+
+            top: 8%;
+
+            left: 7%;
+
+            transform: rotate(-25deg);
+
+        }
+
+        .paw2 {
+
+            bottom: 8%;
+
+            right: 7%;
+
+            transform: rotate(25deg);
+
+        }
+
+
+        /* CARD */
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 450px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-radius: 28px;
+
+            padding: 42px;
+
+            box-shadow:
+                0 20px 60px rgba(77, 42, 24, 0.18);
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            text-align: center;
+
+            margin-bottom: 28px;
+
+        }
+
+        .logo-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            background: #8b4513;
+
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: auto;
+
+            font-size: 28px;
+
+            box-shadow:
+                0 8px 20px rgba(139, 69, 19, 0.25);
+
+        }
+
+        .logo h1 {
+
+            font-family: "Playfair Display", serif;
+
+            color: #5a301d;
+
+            font-size: 30px;
+
+            margin-top: 12px;
+
+        }
+
+        .logo p {
+
+            color: #8b6b5a;
+
+            font-size: 13px;
+
+        }
+
+
+        /* HEADING */
+
+        .heading {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+        }
+
+        .heading h2 {
+
+            font-family: "Playfair Display", serif;
+
+            color: #4d2919;
+
+            font-size: 27px;
+
+        }
+
+        .heading p {
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* FORM */
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+        .form-group label {
+
+            display: block;
+
+            color: #59331f;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+
+        }
+
+        .input-box {
+
+            position: relative;
+
+        }
+
+        .input-box > i:first-child {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #a66a42;
+
+        }
+
+        .input-box input {
+
+            width: 100%;
+
+            padding: 14px 45px 14px 43px;
+
+            border: 1px solid #ead7cc;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background: #fffaf7;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 13px;
+
+            color: #4d2919;
+
+            transition: 0.3s;
+
+        }
+
+        .input-box input:focus {
+
+            border-color: #a65f35;
+
+            box-shadow:
+                0 0 0 3px rgba(166, 95, 53, 0.08);
+
+            background: white;
+
+        }
+
+
+        /* PASSWORD EYE */
+
+        .eye {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #8b6b5a;
+
+            cursor: pointer;
+
+        }
+
+
+        /* LOGIN BUTTON */
+
+        .login-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 14px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(135deg, #8b4513, #a85f32);
+
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 20px rgba(139, 69, 19, 0.2);
+
+        }
+
+        .login-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px rgba(139, 69, 19, 0.28);
+
+        }
+
+
+        /* MESSAGE */
+
+        .message {
+
+            display: none;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            margin-bottom: 15px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+        }
+
+        .message.error {
+
+            display: block;
+
+            background: #fff0f0;
+
+            color: #c0392b;
+
+            border: 1px solid #f2c2c2;
+
+        }
+
+
+        /* SIGNUP */
+
+        .signup-link {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            font-size: 13px;
+
+            color: #777;
+
+        }
+
+        .signup-link a {
+
+            color: #8b4513;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+        }
+
+        .signup-link a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* ADMIN */
+
+        .admin-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #eee0d8;
+
+        }
+
+        .admin-link p {
+
+            color: #888;
+
+            font-size: 12px;
+
+            margin-bottom: 5px;
+
+        }
+
+        .admin-link a {
+
+            color: #8b4513;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+        .admin-link a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 20px 12px;
+
+            }
+
+            .login-container {
+
+                padding: 30px 22px;
+
+                border-radius: 22px;
+
+            }
+
+            .heading h2 {
+
+                font-size: 23px;
+
+            }
+
+            .paw {
+
+                display: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- DECORATIVE PAWS -->
+
+    <i class="fa-solid fa-paw paw paw1"></i>
+
+    <i class="fa-solid fa-paw paw paw2"></i>
+
+
+    <div class="login-container">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-paw"></i>
+
+            </div>
+
+            <h1>Powfect</h1>
+
+            <p>Care Clinic</p>
+
+        </div>
+
+
+        <!-- HEADING -->
+
+        <div class="heading">
+
+            <h2>Welcome Back</h2>
+
+            <p>Login to continue your Powfect journey.</p>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div id="message" class="message"></div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="loginForm">
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <i
+                        class="fa-solid fa-eye eye"
+                        id="passwordEye"
+                    ></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- SIGNUP -->
+
+        <div class="signup-link">
+
+            Don't have an account?
+
+            <a href="customer-signup.html">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <!-- ADMIN -->
+
+        <div class="admin-link">
+
+            <p>Are you an administrator?</p>
+
+            <a href="admin-login.html">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+                Admin Login
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const message =
+            document.getElementById("message");
+
+
+        /* PASSWORD SHOW / HIDE */
+
+        const passwordEye =
+            document.getElementById("passwordEye");
+
+        passwordEye.addEventListener("click", () => {
+
+            const password =
+                document.getElementById("password");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                passwordEye.classList.remove("fa-eye");
+
+                passwordEye.classList.add("fa-eye-slash");
+
+            } else {
+
+                password.type = "password";
+
+                passwordEye.classList.remove("fa-eye-slash");
+
+                passwordEye.classList.add("fa-eye");
+
+            }
+
+        });
+
+
+        /* LOGIN */
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById("email")
+                    .value
+                    .trim();
+
+                const password =
+                    document.getElementById("password")
+                    .value;
+
+
+                /* GET USER */
+
+                const user =
+                    JSON.parse(
+                        localStorage.getItem("powfectUser")
+                    );
+
+
+                /* NO ACCOUNT */
+
+                if (!user) {
+
+                    showMessage(
+                        "No account found. Please create an account first."
+                    );
+
+                    return;
+
+                }
+
+
+                /* CHECK DETAILS */
+
+                if (
+                    email.toLowerCase() !==
+                    user.email.toLowerCase() ||
+                    password !== user.password
+                ) {
+
+                    showMessage(
+                        "❌ Incorrect email or password."
+                    );
+
+                    return;
+
+                }
+
+
+                /* LOGIN STATUS */
+
+                localStorage.setItem(
+                    "powfectLoggedIn",
+                    "true"
+                );
+
+
+                /* SUCCESS */
+
+                message.textContent =
+                    "✅ Login successful! Redirecting...";
+
+                message.className =
+                    "message";
+
+                message.style.display = "block";
+
+                message.style.background = "#effaf1";
+
+                message.style.color = "#27833a";
+
+                message.style.border =
+                    "1px solid #bce5c4";
+
+
+                /* REDIRECT */
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "home.html";
+
+                }, 1000);
+
+            }
+        );
+
+
+        /* MESSAGE */
+
+        function showMessage(text) {
+
+            message.textContent = text;
+
+            message.className =
+                "message error";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

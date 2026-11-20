@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Powfect</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+
+        /* ===============================
+           RESET
+        ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #faf7ef;
+            color: #222;
+        }
+
+
+        /* ===============================
+           NAVBAR
+        ================================ */
+
+        .admin-navbar {
+            width: 100%;
+            min-height: 70px;
+            background: #5d4037;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+            color: white;
+            position: relative;
+            z-index: 1000;
+        }
+
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+
+        .admin-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #f3c892;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+
+        /* ===============================
+           HAMBURGER
+        ================================ */
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 22px;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+
+        /* ===============================
+           NAV LINKS
+        ================================ */
+
+        .admin-nav-links {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        .admin-nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+
+        .admin-nav-links a:hover,
+        .admin-nav-links a.active {
+            background: rgba(255,255,255,0.12);
+            color: #f3c892;
+        }
+
+
+        /* ===============================
+           LOGOUT
+        ================================ */
+
+        .logout-btn {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            margin-left: 12px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+
+        .logout-btn:hover {
+            color: #f3c892;
+        }
+
+
+        /* ===============================
+           MAIN CONTAINER
+        ================================ */
+
+        .admin-container {
+            width: 88%;
+            max-width: 1500px;
+            margin: 45px auto;
+        }
+
+
+        /* ===============================
+           PAGE HEADER
+        ================================ */
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+
+        .page-header h1 {
+            color: #5a3825;
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+
+        .page-header p {
+            color: #666;
+            font-size: 19px;
+        }
+
+
+        /* ===============================
+           TOTAL ORDERS CARD
+        ================================ */
+
+        .total-orders-card {
+            width: 190px;
+            min-width: 190px;
+            background: white;
+            padding: 24px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(90, 56, 37, 0.08);
+        }
+
+
+        .total-orders-card i {
+            color: #5a3825;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+
+        .total-orders-card h2 {
+            color: #5a3825;
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+
+        .total-orders-card p {
+            color: #777;
+            font-size: 15px;
+        }
+
+
+        /* ===============================
+           FILTER SECTION
+        ================================ */
+
+        .filter-section {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(90, 56, 37, 0.08);
+        }
+
+
+        /* ===============================
+           SEARCH BOX
+        ================================ */
+
+        .filter-section .search-box {
+            flex: 1;
+            position: relative;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+
+        .filter-section .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a624a;
+            font-size: 19px;
+            pointer-events: none;
+        }
+
+
+        .filter-section .search-box input {
+            width: 100%;
+            height: 57px;
+            border: 1px solid #ddd !important;
+            border-radius: 10px;
+            outline: none;
+            padding: 0 18px 0 52px;
+            font-size: 16px;
+            color: #333;
+            background: white !important;
+            box-shadow: none !important;
+        }
+
+
+        .filter-section .search-box input:focus {
+            border-color: #b88a68 !important;
+        }
+
+
+        .filter-section .search-box input::placeholder {
+            color: #999;
+        }
+
+
+        /* ===============================
+           STATUS FILTER
+        ================================ */
+
+        .status-filter {
+            width: 275px;
+        }
+
+
+        .status-filter select {
+            width: 100%;
+            height: 57px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 0 18px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #5a3825;
+            background: white;
+            outline: none;
+            cursor: pointer;
+        }
+
+
+        .status-filter select:focus {
+            border-color: #b88a68;
+        }
+
+
+        /* ===============================
+           RESULT COUNT
+        ================================ */
+
+        .result-count {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+
+        .result-count span {
+            color: #5a3825;
+            font-weight: bold;
+        }
+
+
+        /* ===============================
+           ORDERS CONTAINER
+        ================================ */
+
+        #adminOrders {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+
+        /* ===============================
+           ORDER CARD
+        ================================ */
+
+        .admin-order-card {
+            background: white;
+            border-radius: 17px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(90, 56, 37, 0.08);
+        }
+
+
+        /* ===============================
+           ORDER HEADER
+        ================================ */
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .order-header h3 {
+            color: #5a3825;
+            font-size: 24px;
+            margin-bottom: 7px;
+        }
+
+
+        .order-header p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* ===============================
+           CUSTOMER INFO
+        ================================ */
+
+        .customer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+        }
+
+
+        .customer-info strong {
+            color: #5a3825;
+            font-size: 15px;
+        }
+
+
+        .customer-info span {
+            color: #777;
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+
+        /* ===============================
+           ORDER BODY
+        ================================ */
+
+        .order-body {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr;
+            gap: 30px;
+            padding: 24px 0;
+        }
+
+
+        /* ===============================
+           PRODUCTS SECTION
+        ================================ */
+
+        .products-section h4 {
+            color: #5a3825;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+
+        .products-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+        .order-product {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #faf7ef;
+        }
+
+
+        /* ===============================
+           PRODUCT IMAGE
+        ================================ */
+
+        .order-product img {
+            width: 80px !important;
+            height: 80px !important;
+            min-width: 80px !important;
+            max-width: 80px !important;
+            min-height: 80px !important;
+            max-height: 80px !important;
+            object-fit: cover !important;
+            border-radius: 8px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+
+        /* ===============================
+           PRODUCT DETAILS
+        ================================ */
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 0;
+        }
+
+
+        .product-details strong {
+            color: #5a3825;
+            font-size: 16px;
+        }
+
+
+        .product-details span {
+            color: #666;
+            font-size: 14px;
+        }
+
+
+        /* ===============================
+           ORDER INFO
+        ================================ */
+
+        .order-info {
+            background: #faf7ef;
+            border-radius: 12px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e8dfd6;
+        }
+
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .info-row span {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        .info-row strong {
+            color: #5a3825;
+            font-size: 14px;
+            text-align: right;
+        }
+
+
+        .info-row .order-total {
+            font-size: 20px;
+        }
+
+
+        /* ===============================
+           ORDER FOOTER
+        ================================ */
+
+        .order-footer {
+            margin-top: 5px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+
+        .status-control {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+
+        .status-control label {
+            color: #777;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+        .status-control select {
+            min-width: 210px;
+            height: 45px;
+            border: 1px solid #d9b89e;
+            border-radius: 9px;
+            padding: 0 14px;
+            background: #fffaf5;
+            color: #5a3825;
+            font-size: 14px;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+        }
+
+
+        .status-control select:focus {
+            border-color: #5a3825;
+        }
+
+
+        /* ===============================
+           VIEW DETAILS BUTTON
+        ================================ */
+
+        .view-details-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            background: #5a3825;
+            color: white;
+            text-decoration: none;
+            padding: 12px 19px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+
+        .view-details-btn:hover {
+            background: #402719;
+            transform: translateY(-1px);
+        }
+
+
+        /* ===============================
+           NO ORDERS
+        ================================ */
+
+        .no-orders {
+            background: white;
+            border-radius: 16px;
+            padding: 60px 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(90, 56, 37, 0.08);
+        }
+
+
+        .no-orders i {
+            color: #b88a68;
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+
+        .no-orders h3 {
+            color: #5a3825;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+
+        .no-orders p {
+            color: #777;
+        }
+
+
+        /* ===============================
+           TOAST
+        ================================ */
+
+        .powfect-toast {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 390px;
+            max-width: calc(100% - 30px);
+            background: white;
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            z-index: 99999;
+            animation: toastSlide 0.35s ease;
+            overflow: hidden;
+        }
+
+
+        .powfect-toast.success {
+            border-left: 5px solid #4f8a5b;
+        }
+
+
+        .powfect-toast.error {
+            border-left: 5px solid #b64b4b;
+        }
+
+
+        .toast-icon {
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        .powfect-toast.success .toast-icon {
+            background: #e7f4e9;
+            color: #4f8a5b;
+        }
+
+
+        .powfect-toast.error .toast-icon {
+            background: #fbeaea;
+            color: #b64b4b;
+        }
+
+
+        .toast-content {
+            flex: 1;
+        }
+
+
+        .toast-title {
+            color: #5a3825;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+
+        .toast-message {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        .toast-close {
+            border: none;
+            background: transparent;
+            color: #888;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+        }
+
+
+        .toast-progress {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: #5a3825;
+            animation: toastProgress 8s linear forwards;
+        }
+
+
+        @keyframes toastSlide {
+
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+
+        @keyframes toastProgress {
+
+            from {
+                width: 100%;
+            }
+
+            to {
+                width: 0;
+            }
+
+        }
+
+
+        /* ===============================
+           RESPONSIVE - TABLET
+        ================================ */
+
+        @media (max-width: 1000px) {
+
+            .order-body {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* ===============================
+           RESPONSIVE - MOBILE NAVBAR
+        ================================ */
+
+        @media (max-width: 700px) {
+
+            .admin-navbar {
+                min-height: 65px;
+                padding: 0 5%;
+                justify-content: flex-start;
+            }
+
+
+            .navbar-left {
+                display: flex;
+                align-items: center;
+            }
+
+
+            /* 3 LINE BUTTON */
+
+            .menu-toggle {
+                display: block;
+                order: -1;
+                margin-right: 15px;
+            }
+
+
+            .admin-logo {
+                font-size: 21px;
+            }
+
+
+            /* MOBILE MENU */
+
+            .admin-nav-links {
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 210px;
+                background: #5d4037;
+
+                display: none;
+
+                flex-direction: column;
+                align-items: flex-start;
+
+                padding: 20px;
+                gap: 18px;
+
+                box-shadow: 5px 8px 18px rgba(0,0,0,0.18);
+            }
+
+
+            .admin-nav-links.show {
+                display: flex;
+            }
+
+
+            .admin-nav-links a {
+                width: 100%;
+                text-align: left;
+                padding: 0;
+            }
+
+
+            .logout-btn {
+                margin-left: auto !important;
+                padding: 8px;
+            }
+
+
+            .logout-btn span {
+                display: none;
+            }
+
+
+            .admin-container {
+                width: 92%;
+                margin: 30px auto;
+            }
+
+
+            .page-header {
+                flex-direction: column;
+            }
+
+
+            .total-orders-card {
+                width: 100%;
+            }
+
+
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+
+            .status-filter {
+                width: 100%;
+            }
+
+
+            .order-header {
+                flex-direction: column;
+            }
+
+
+            .customer-info {
+                align-items: flex-start;
+            }
+
+
+            .admin-order-card {
+                padding: 20px;
+            }
+
+
+            .order-product img {
+                width: 65px !important;
+                height: 65px !important;
+                min-width: 65px !important;
+                max-width: 65px !important;
+                min-height: 65px !important;
+                max-height: 65px !important;
+            }
+
+
+            .powfect-toast {
+                top: 15px;
+                right: 15px;
+                left: 15px;
+                width: auto;
+            }
+
+        }
+
+
+        /* ===============================
+           SMALL MOBILE
+        ================================ */
+
+        @media (max-width: 600px) {
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+
+            .page-header p {
+                font-size: 16px;
+            }
+
+
+            .order-footer {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+
+            .status-control select {
+                width: 100%;
+            }
+
+
+            .view-details-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===============================
+         NAVBAR
+    ================================ -->
+
+    <nav class="admin-navbar">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="navbar-left">
+
+
+            <!-- MOBILE 3 LINE -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- LOGO -->
+
+            <a
+                href="admin-dashboard.html"
+                class="admin-logo"
+            >
+
+                <i class="fa-solid fa-paw"></i>
+
+                Powfect Admin
+
+            </a>
+
+        </div>
+
+
+        <!-- NAV LINKS -->
+
+        <div
+            class="admin-nav-links"
+            id="adminNavLinks"
+        >
+
+
+            <a
+                href="admin-dashboard.html"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="admin-orders.html"
+                class="active"
+            >
+
+                <i class="fa-solid fa-box"></i>
+
+                Orders
+
+            </a>
+
+
+            <a
+                href="admin-products.html"
+            >
+
+                <i class="fa-solid fa-cube"></i>
+
+                Products
+
+            </a>
+
+
+            <a
+                href="admin-settings.html"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </a>
+
+
+            <a
+                href="home.html"
+            >
+
+                <i class="fa-solid fa-store"></i>
+
+                Store
+
+            </a>
+
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            type="button"
+            class="logout-btn"
+            onclick="logout()"
+            title="Logout"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+        </button>
+
+
+    </nav>
+
+
+    <!-- ===============================
+         MAIN
+    ================================ -->
+
+    <main class="admin-container">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+
+            <div>
+
+                <h1>
+                    Admin Order Management
+                </h1>
+
+                <p>
+                    Search, filter and manage customer orders.
+                </p>
+
+            </div>
+
+
+            <div class="total-orders-card">
+
+                <i class="fa-solid fa-box"></i>
+
+                <h2 id="totalOrders">
+                    0
+                </h2>
+
+                <p>
+                    Total Orders
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ===============================
+             SEARCH + FILTER
+        ================================ -->
+
+        <div class="filter-section">
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by customer name, email or order number..."
+                >
+
+            </div>
+
+
+            <!-- STATUS FILTER -->
+
+            <div class="status-filter">
+
+                <select id="statusFilter">
+
+                    <option value="All">
+                        All Orders
+                    </option>
+
+                    <option value="Order Placed">
+                        Order Placed
+                    </option>
+
+                    <option value="Processing">
+                        Processing
+                    </option>
+
+                    <option value="Shipped">
+                        Shipped
+                    </option>
+
+                    <option value="Out for Delivery">
+                        Out for Delivery
+                    </option>
+
+                    <option value="Delivered">
+                        Delivered
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ===============================
+             RESULT COUNT
+        ================================ -->
+
+        <div class="result-count">
+
+            Showing
+
+            <span id="resultCount">
+                0
+            </span>
+
+            orders
+
+        </div>
+
+
+        <!-- ===============================
+             ORDERS
+        ================================ -->
+
+        <div id="adminOrders"></div>
+
+
+    </main>
+
+
+    <!-- ===============================
+         EMAILJS
+    ================================ -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+
+    <!-- ===============================
+         MOBILE NAVBAR
+    ================================ -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const adminNavLinks =
+            document.getElementById("adminNavLinks");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                adminNavLinks.classList.toggle("show");
+
+            }
+        );
+
+
+        adminNavLinks
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        adminNavLinks.classList.remove("show");
+
+                    }
+                );
+
+            });
+
+
+        function logout() {
+
+            localStorage.removeItem(
+                "powfectAdminLoggedIn"
+            );
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+
+    </script>
+
+
+    <!-- ===============================
+         ADMIN ORDERS JS
+    ================================ -->
+
+    <script src="admin-orders.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Powfect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f5f0;
+            color: #3d2b1f;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #5a3825;
+            color: white;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: #f3d6b3;
+        }
+
+        .logout-btn {
+            background: #d88b5c;
+            border: none;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background: #c87545;
+        }
+
+        /* MAIN */
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .page-header h1 {
+            font-size: 30px;
+            color: #4b2e1f;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            background: #5a3825;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            background: #432719;
+        }
+
+        /* ORDER TOP */
+        .order-top {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            margin-bottom: 22px;
+        }
+
+        .order-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .order-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: #5a3825;
+        }
+
+        .order-date {
+            color: #777;
+            margin-top: 7px;
+            font-size: 14px;
+        }
+
+        .status-badge {
+            padding: 10px 18px;
+            border-radius: 25px;
+            background: #f3e2d2;
+            color: #7b4526;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* GRID */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .card h2 {
+            font-size: 19px;
+            margin-bottom: 20px;
+            color: #5a3825;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .info-value {
+            text-align: right;
+            font-weight: 600;
+            color: #3d2b1f;
+            word-break: break-word;
+        }
+
+        .address {
+            line-height: 1.7;
+            text-align: right;
+            max-width: 60%;
+        }
+
+        /* PRODUCTS */
+        .products-card {
+            margin-top: 22px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+        }
+
+        .product-image {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #f5f5f5;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .product-qty {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #5a3825;
+        }
+
+        /* TOTAL */
+        .total-box {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* TRACKING */
+        .tracking-card {
+            margin-top: 22px;
+        }
+
+        .tracking {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 30px 10px 10px;
+        }
+
+        .tracking::before {
+            content: "";
+            position: absolute;
+            top: 17px;
+            left: 8%;
+            right: 8%;
+            height: 4px;
+            background: #ddd;
+            z-index: 0;
+        }
+
+        .tracking-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 20%;
+        }
+
+        .circle {
+            width: 35px;
+            height: 35px;
+            margin: auto;
+            border-radius: 50%;
+            background: #ddd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .tracking-step.active .circle {
+            background: #6f4b35;
+        }
+
+        .tracking-step.completed .circle {
+            background: #4d8b5c;
+        }
+
+        .step-title {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .tracking-step.active .step-title,
+        .tracking-step.completed .step-title {
+            color: #4b2e1f;
+            font-weight: bold;
+        }
+
+        /* ERROR */
+        .error-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .error-box h2 {
+            margin-bottom: 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tracking {
+                overflow-x: auto;
+                min-width: 600px;
+            }
+
+            .tracking-wrapper {
+                overflow-x: auto;
+            }
+
+            .product-item {
+                align-items: flex-start;
+            }
+
+            .product-price {
+                margin-left: auto;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .info-value,
+            .address {
+                text-align: left;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🐾 Powfect Admin
+        </div>
+
+        <div class="nav-links">
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-orders.html">Orders</a>
+            <a href="home.html">Store</a>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="page-header">
+            <h1>Order Details</h1>
+
+            <a href="admin-orders.html" class="back-btn">
+                ← Back to Orders
+            </a>
+        </div>
+
+
+        <div id="orderContent"></div>
+
+    </main>
+
+
+    <script src="admin-order-details.js"></script>
+
+</body>
+</html>

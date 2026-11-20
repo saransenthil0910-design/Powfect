@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- EMAIL JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #5b2f1f;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(238, 187, 151, 0.28),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(215, 108, 32, 0.12),
+                    transparent 30%
+                ),
+                #fff7f1;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 16px 7%;
+
+            background: rgba(255, 250, 246, 0.94);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(91, 47, 31, 0.08);
+        }
+
+
+        .logo-row {
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            text-decoration: none;
+
+            color: #5b2f1f;
+        }
+
+
+        .logo-icon {
+
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #a35116,
+                #d76c20
+            );
+
+            color: white;
+
+            font-size: 21px;
+        }
+
+
+        .logo-text {
+
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+
+        .logo-text span {
+
+            display: block;
+
+            font-size: 11px;
+            font-weight: 500;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .menu-btn {
+
+            display: none;
+
+            border: none;
+            background: none;
+
+            font-size: 24px;
+
+            color: #5b2f1f;
+
+            cursor: pointer;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            list-style: none;
+
+            gap: 28px;
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #5b2f1f;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: #d76c20;
+        }
+
+
+        /* ================= DECORATIVE PAWS ================= */
+
+        .paw {
+
+            position: absolute;
+
+            color: rgba(163, 81, 22, 0.10);
+
+            font-size: 45px;
+
+            z-index: -1;
+        }
+
+
+        .paw-one {
+            top: 150px;
+            left: 5%;
+            transform: rotate(-20deg);
+        }
+
+
+        .paw-two {
+            top: 250px;
+            right: 5%;
+            transform: rotate(25deg);
+        }
+
+
+        .paw-three {
+            bottom: 200px;
+            left: 8%;
+            transform: rotate(15deg);
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            position: relative;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 90px 20px 70px;
+
+            text-align: center;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            border-radius: 30px;
+
+            background: #f5dfd1;
+
+            color: #a35116;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(42px, 6vw, 70px);
+
+            line-height: 1.1;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero h1 span {
+
+            color: #d76c20;
+        }
+
+
+        .hero p {
+
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #805f50;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-title small {
+
+            display: block;
+
+            color: #d76c20;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+        }
+
+
+        .section-title h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 42px;
+
+            color: #5b2f1f;
+        }
+
+
+        /* ================= CARDS ================= */
+
+        .services {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 40px 20px 90px;
+        }
+
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+
+        .flip-card {
+
+            height: 430px;
+
+            perspective: 1200px;
+        }
+
+
+        .flip-card-inner {
+
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            transition: transform 0.7s;
+
+            transform-style: preserve-3d;
+        }
+
+
+        /* IMPORTANT FLIP CLASS */
+
+        .flip-card-inner.flipped {
+
+            transform: rotateY(180deg);
+        }
+
+
+        .flip-card-front,
+        .flip-card-back {
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            backface-visibility: hidden;
+
+            -webkit-backface-visibility: hidden;
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 18px 40px rgba(91, 47, 31, 0.12);
+        }
+
+
+        .flip-card-front {
+
+            background: linear-gradient(
+                145deg,
+                #fffdf9,
+                #f9e3d6
+            );
+
+            padding: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            text-align: center;
+        }
+
+
+        .flip-card-front .title {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            margin: 5px 0 10px;
+        }
+
+
+        .flip-card-front img {
+
+            width: 100%;
+
+            height: 270px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+        }
+
+
+        .view-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 13px 20px;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #a35116,
+                #d76c20
+            );
+
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .view-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(163, 81, 22, 0.25);
+        }
+
+
+        .flip-card-back {
+
+            background: linear-gradient(
+                145deg,
+                #d77c55,
+                #edb09a
+            );
+
+            color: white;
+
+            transform: rotateY(180deg);
+
+            padding: 30px 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .flip-card-back .title {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .flip-card-back ul {
+
+            list-style: none;
+
+            margin-bottom: 25px;
+        }
+
+
+        .flip-card-back li {
+
+            margin: 10px 0;
+
+            font-size: 14px;
+        }
+
+
+        .price-btn {
+
+            border: none;
+
+            padding: 12px 18px;
+
+            border-radius: 25px;
+
+            background: white;
+
+            color: #a35116;
+
+            font-family: "Poppins", sans-serif;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= BENEFITS ================= */
+
+        .benefits {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 20px 20px 90px;
+        }
+
+
+        .benefit-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .benefit-card {
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 30px rgba(91, 47, 31, 0.08);
+        }
+
+
+        .benefit-icon {
+
+            width: 60px;
+            height: 60px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #f7e1d4;
+
+            color: #a35116;
+
+            font-size: 25px;
+        }
+
+
+        .benefit-card h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .benefit-card p {
+
+            color: #80675b;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= BOOKING ================= */
+
+        .booking-section {
+
+            max-width: 1000px;
+
+            margin: 0 auto 90px;
+
+            padding: 55px 30px;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #5b2f1f,
+                #85451f
+            );
+
+            color: white;
+
+            text-align: center;
+        }
+
+
+        .booking-section small {
+
+            color: #f4c7a7;
+
+            letter-spacing: 2px;
+
+            font-weight: 700;
+        }
+
+
+        .booking-section h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 38px;
+
+            margin: 10px 0;
+        }
+
+
+        .booking-section p {
+
+            color: #f7ded0;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .program-options {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .program-option {
+
+            padding: 14px 22px;
+
+            border-radius: 30px;
+
+            border: 1px solid rgba(255,255,255,0.35);
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            font-size: 14px;
+        }
+
+
+        .program-option:hover {
+
+            background: rgba(255,255,255,0.1);
+        }
+
+
+        .program-option.selected {
+
+            background: #f1b28e;
+
+            color: #5b2f1f;
+
+            border-color: #f1b28e;
+
+            font-weight: 600;
+        }
+
+
+        .book-btn {
+
+            border: none;
+
+            padding: 14px 30px;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                #f1b28e,
+                #f6d0b8
+            );
+
+            color: #5b2f1f;
+
+            font-family: "Poppins", sans-serif;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .book-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.2);
+        }
+
+
+        /* ================= SUCCESS ================= */
+
+        .success-card {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.12);
+
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+
+        .success-card.show {
+
+            display: block;
+        }
+
+
+        .success-card i {
+
+            font-size: 38px;
+
+            margin-bottom: 12px;
+
+            color: #f6d0b8;
+        }
+
+
+        .success-card h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .success-card p {
+
+            margin: 5px 0;
+
+            color: #f8dfd1;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px 20px;
+
+            border-top: 1px solid rgba(91, 47, 31, 0.08);
+
+            color: #80675b;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 14px 20px;
+            }
+
+
+            .logo-row {
+
+                justify-content: flex-start;
+            }
+
+
+            .menu-btn {
+
+                display: block;
+            }
+
+
+            .nav-links {
+
+                display: none;
+
+                flex-direction: column;
+
+                width: 100%;
+
+                gap: 0;
+
+                margin-top: 15px;
+
+                padding: 10px 0;
+            }
+
+
+            .nav-links.show {
+
+                display: flex;
+            }
+
+
+            .nav-links li {
+
+                width: 100%;
+            }
+
+
+            .nav-links a {
+
+                display: block;
+
+                padding: 12px 5px;
+            }
+
+
+            .hero {
+
+                padding: 65px 20px 50px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 42px;
+            }
+
+
+            .hero p {
+
+                font-size: 14px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 34px;
+            }
+
+
+            .cards {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .flip-card {
+
+                height: 430px;
+            }
+
+
+            .benefit-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .booking-section {
+
+                margin-left: 15px;
+
+                margin-right: 15px;
+
+                padding: 45px 20px;
+            }
+
+
+            .booking-section h2 {
+
+                font-size: 32px;
+            }
+
+
+            .program-options {
+
+                flex-direction: column;
+            }
+
+
+            .program-option {
+
+                width: 100%;
+            }
+        }
+
+
+        /* ================= SMALL MOBILE ================= */
+
+        @media (max-width: 400px) {
+
+            .hero h1 {
+
+                font-size: 36px;
+            }
+
+
+            .flip-card {
+
+                height: 410px;
+            }
+
+
+            .flip-card-front img {
+
+                height: 250px;
+            }
+
+
+            .booking-section h2 {
+
+                font-size: 28px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo-row">
+
+            <button
+                type="button"
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open navigation menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <a href="home.html" class="logo">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-paw"></i>
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    Powfect
+
+                    <span>Care Clinic</span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="home.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="pet.html">
+                    Pet Care
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="adoption.html"
+                    class="active"
+                >
+                    Adoption
+                </a>
+            </li>
+
+            <li>
+                <a href="veterinary.html">
+                    Veterinary
+                </a>
+            </li>
+
+            <li>
+                <a href="training.html">
+                    Training
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- DECORATIVE PAWS -->
+
+    <i class="fa-solid fa-paw paw paw-one"></i>
+
+    <i class="fa-solid fa-paw paw paw-two"></i>
+
+    <i class="fa-solid fa-paw paw paw-three"></i>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <span class="hero-badge">
+            Pet Adoption & Care
+        </span>
+
+
+        <h1>
+            Find Love.
+            <span>Build a Family.</span>
+        </h1>
+
+
+        <p>
+            Give a loving pet a safe home and get everything
+            you need for a happy new beginning with
+            Powfect Care Clinic.
+        </p>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services">
+
+        <div class="section-title">
+
+            <small>
+                Our Adoption Services
+            </small>
+
+            <h2>
+                A Better Start for Every Pet
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <!-- CARD 1 -->
+
+            <div class="flip-card">
+
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+
+                        <p class="title">
+                            Pet Boarding
+                        </p>
+
+
+                        <img
+                            src="images/boarding peT.jfif"
+                            alt="Pet Boarding"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="view-btn"
+                        >
+                            View Details
+                        </button>
+
+                    </div>
+
+
+                    <div class="flip-card-back">
+
+                        <p class="title">
+                            Safe & Comfortable Stay
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                🍽️ Healthy Meals
+                            </li>
+
+                            <li>
+                                💧 Fresh Water
+                            </li>
+
+                            <li>
+                                🛏️ Comfortable Stay
+                            </li>
+
+                            <li>
+                                🩺 Health Monitoring
+                            </li>
+
+                            <li>
+                                🛡️ Safe & Secure
+                            </li>
+
+                            <li>
+                                ⏰ Flexible Stay
+                            </li>
+
+                        </ul>
+
+
+                        <button class="price-btn">
+                            ₹399 / Per Day
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="flip-card">
+
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+
+                        <p class="title">
+                            Meet & Greet
+                        </p>
+
+
+                        <img
+                            src="images/adoption.jfif"
+                            alt="Pet Adoption"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="view-btn"
+                        >
+                            View Details
+                        </button>
+
+                    </div>
+
+
+                    <div class="flip-card-back">
+
+                        <p class="title">
+                            Find Your New Best Friend
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                🐾 Golden Retriever
+                            </li>
+
+                            <li>
+                                🐾 Labrador Retriever
+                            </li>
+
+                            <li>
+                                🐾 German Shepherd
+                            </li>
+
+                            <li>
+                                🐾 Pomeranian
+                            </li>
+
+                            <li>
+                                🐾 Indie / Indian Pariah
+                            </li>
+
+                            <li>
+                                🐾 Beagle
+                            </li>
+
+                        </ul>
+
+
+                        <button class="price-btn">
+                            Visit Our Adoption Centre
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 3 -->
+
+            <div class="flip-card">
+
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+
+                        <p class="title">
+                            Pet Starter Kit
+                        </p>
+
+
+                        <img
+                            src="images/dog cat.jfif"
+                            alt="Pet Starter Kit"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="view-btn"
+                        >
+                            View Details
+                        </button>
+
+                    </div>
+
+
+                    <div class="flip-card-back">
+
+                        <p class="title">
+                            Everything for a Fresh Start
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                🛏️ Comfortable Bed
+                            </li>
+
+                            <li>
+                                🧸 Toys & Play Items
+                            </li>
+
+                            <li>
+                                🦮 Collar & Leash
+                            </li>
+
+                            <li>
+                                🧹 Cleaning Supplies
+                            </li>
+
+                            <li>
+                                🩺 Health Essentials
+                            </li>
+
+                            <li>
+                                🛁 Grooming Essentials
+                            </li>
+
+                        </ul>
+
+
+                        <button class="price-btn">
+                            ₹999 / Kit
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BENEFITS ================= -->
+
+    <section class="benefits">
+
+        <div class="section-title">
+
+            <small>
+                Why Powfect
+            </small>
+
+            <h2>
+                Caring Beyond Adoption
+            </h2>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+            <div class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                </div>
+
+
+                <h3>
+                    Safe & Loving Care
+                </h3>
+
+
+                <p>
+                    A comfortable and caring environment
+                    for every pet.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+
+                </div>
+
+
+                <h3>
+                    Trusted Adoption Support
+                </h3>
+
+
+                <p>
+                    Support to help you find the right
+                    furry companion.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card">
+
+                <div class="benefit-icon">
+
+                    <i class="fa-solid fa-house"></i>
+
+                </div>
+
+
+                <h3>
+                    Ready for a New Start
+                </h3>
+
+
+                <p>
+                    Useful essentials to welcome your
+                    new pet home.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOKING ================= -->
+
+    <section class="booking-section">
+
+        <small>
+            BOOK YOUR REQUEST
+        </small>
+
+
+        <h2>
+            Ready to Give a Pet a New Start?
+        </h2>
+
+
+        <p>
+            Choose the service you need and send us your request.
+        </p>
+
+
+        <div class="program-options">
+
+
+            <div
+                class="program-option"
+                data-service="Pet Boarding"
+            >
+                Pet Boarding
+            </div>
+
+
+            <div
+                class="program-option"
+                data-service="Meet & Greet / Adoption"
+            >
+                Meet & Greet / Adoption
+            </div>
+
+
+            <div
+                class="program-option"
+                data-service="Pet Starter Kit"
+            >
+                Pet Starter Kit
+            </div>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="book-btn"
+            id="bookBtn"
+        >
+            Submit Adoption Request
+        </button>
+
+
+        <div
+            class="success-card"
+            id="successCard"
+        >
+
+            <i class="fa-solid fa-circle-check"></i>
+
+
+            <h3>
+                Request Successfully Submitted!
+            </h3>
+
+
+            <p>
+                Selected Service:
+                <strong id="selectedService">
+                    -
+                </strong>
+            </p>
+
+
+            <p>
+                Your request has been received successfully.
+            </p>
+
+
+            <p>
+                Booking details have been sent successfully.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Powfect Care Clinic.
+        All Rights Reserved.
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="adoption.js"></script>
+
+
+</body>
+
+</html>

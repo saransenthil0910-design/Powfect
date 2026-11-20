@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect</title>
+
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        href="Images/company logo.jpeg"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <style>
+
+        /* ========================================
+           GLOBAL RESET
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f5e8d5;
+
+            color: #3a1e14;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+
+        .nav {
+
+            width: 100%;
+
+            padding: 18px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            position: relative;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, 0.55);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+            box-shadow:
+                0 3px 20px
+                rgba(139, 69, 19, 0.12);
+        }
+
+
+        /* ========================================
+           LEFT AREA
+        ======================================== */
+
+        .left-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* ========================================
+           MENU BUTTON
+        ======================================== */
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: #3a1e14;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            padding: 5px;
+
+            line-height: 1;
+        }
+
+
+        /* ========================================
+           LOGO
+        ======================================== */
+
+        .companylogo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: #2b8597;
+
+            text-shadow:
+                2px 2px 10px
+                rgba(15, 65, 75, 0.7);
+
+            flex-shrink: 0;
+        }
+
+
+        .logo img {
+
+            width: 50px;
+
+            height: 50px;
+
+            display: block;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+        }
+
+
+        .company h2 {
+
+            font-size: 22px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ========================================
+           NAV LINKS
+        ======================================== */
+
+        .navhome {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 28px;
+        }
+
+
+        .nav1 a {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding: 8px 0;
+
+            color: #202020;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        /* ========================================
+           NAV UNDERLINE
+        ======================================== */
+
+        .nav1 a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background-color: #b9572d;
+
+            transition:
+                width 0.3s ease;
+        }
+
+
+        .nav1 a:hover::after,
+        .nav1 a.active::after {
+
+            width: 100%;
+        }
+
+
+        /* ========================================
+           BLOG HERO
+        ======================================== */
+
+        .blog-hero {
+
+            width: 100%;
+
+            padding:
+                65px 6% 45px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(245, 232, 213, 0.85),
+                    rgba(245, 232, 213, 0.95)
+                );
+        }
+
+
+        .blog-hero h1 {
+
+            color: #8b4513;
+
+            font-family: cursive;
+
+            font-size:
+                clamp(42px, 6vw, 65px);
+
+            line-height: 1.1;
+
+            margin-bottom: 12px;
+        }
+
+
+        .blog-hero h2 {
+
+            color: #3a1e14;
+
+            font-size:
+                clamp(20px, 3vw, 28px);
+
+            margin-bottom: 12px;
+        }
+
+
+        .blog-hero p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #555;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ========================================
+           BLOG CONTAINER
+        ======================================== */
+
+        .blog-container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin:
+                10px auto 70px;
+        }
+
+
+        /* ========================================
+           BLOG GRID
+        ======================================== */
+
+        .blog-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+
+        /* ========================================
+           BLOG CARD
+        ======================================== */
+
+        .blog-card {
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 18px
+                rgba(80, 50, 30, 0.15);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .blog-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(80, 50, 30, 0.22);
+        }
+
+
+        /* ========================================
+           BLOG IMAGE
+        ======================================== */
+
+        .blog-image {
+
+            width: 100%;
+
+            height: 220px;
+
+            overflow: hidden;
+        }
+
+
+        .blog-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.4s ease;
+        }
+
+
+        .blog-card:hover
+        .blog-image img {
+
+            transform:
+                scale(1.06);
+        }
+
+
+        /* ========================================
+           BLOG CONTENT
+        ======================================== */
+
+        .blog-content {
+
+            padding: 24px;
+        }
+
+
+        .blog-category {
+
+            display: inline-block;
+
+            margin-bottom: 10px;
+
+            padding:
+                6px 12px;
+
+            border-radius: 20px;
+
+            background-color: #f1d4b5;
+
+            color: #8b4513;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+        }
+
+
+        .blog-content h2 {
+
+            margin-bottom: 10px;
+
+            color: #3a1e14;
+
+            font-size: 21px;
+
+            line-height: 1.3;
+        }
+
+
+        .blog-content p {
+
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* ========================================
+           READ MORE BUTTON
+        ======================================== */
+
+        .read-more {
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: #a35116;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            padding: 0;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        .read-more:hover {
+
+            color: #7b3510;
+        }
+
+
+        .read-more i {
+
+            margin-left: 5px;
+        }
+
+
+        /* ========================================
+           BLOG DETAILS
+        ======================================== */
+
+        .blog-details {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding-top: 15px;
+
+            border-top:
+                1px solid #e0cdb8;
+
+            color: #555;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        .blog-details.show {
+
+            display: block;
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        .footer {
+
+            width: 100%;
+
+            padding:
+                25px 5%;
+
+            text-align: center;
+
+            background-color: #3a1e14;
+
+            color: #ffffff;
+
+            font-size: 14px;
+        }
+
+
+        .footer span {
+
+            color: #f1c49a;
+        }
+
+
+        /* ========================================
+           TABLET
+        ======================================== */
+
+        @media (max-width: 1023px) {
+
+            .nav {
+
+                padding:
+                    16px 4%;
+            }
+
+
+            .navhome {
+
+                gap: 20px;
+            }
+
+
+            .blog-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 767px) {
+
+            .nav {
+
+                width: 100%;
+
+                min-height: 64px;
+
+                padding:
+                    10px 5%;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: flex-start;
+
+                gap: 8px;
+
+                background:
+                    rgba(255, 255, 255, 0.75);
+            }
+
+
+            .left-area {
+
+                width: 100%;
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 8px;
+            }
+
+
+            /* MOBILE MENU */
+
+            .menu-toggle {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                width: 38px;
+
+                height: 38px;
+
+                padding: 0;
+
+                font-size: 23px;
+            }
+
+
+            /* MOBILE LOGO */
+
+            .companylogo {
+
+                gap: 8px;
+            }
+
+
+            .logo img {
+
+                width: 40px;
+
+                height: 40px;
+            }
+
+
+            .company h2 {
+
+                font-size: 18px;
+            }
+
+
+            /* MOBILE NAV */
+
+            .navhome {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                width: 100%;
+
+                padding:
+                    8px 5% 12px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 0;
+
+                background:
+                    rgba(255, 255, 255, 0.97);
+
+                backdrop-filter: blur(12px);
+
+                -webkit-backdrop-filter: blur(12px);
+
+                box-shadow:
+                    0 8px 20px
+                    rgba(0, 0, 0, 0.15);
+
+                z-index: 9999;
+            }
+
+
+            .navhome.active {
+
+                display: flex;
+            }
+
+
+            .nav1 {
+
+                width: 100%;
+            }
+
+
+            .nav1 a {
+
+                width: 100%;
+
+                display: block;
+
+                padding:
+                    12px 5px;
+
+                font-size: 15px;
+
+                color: #202020;
+            }
+
+
+            /* BLOG HERO */
+
+            .blog-hero {
+
+                padding:
+                    45px 6% 35px;
+            }
+
+
+            .blog-hero h1 {
+
+                font-size: 45px;
+            }
+
+
+            .blog-hero h2 {
+
+                font-size: 21px;
+
+                line-height: 1.4;
+            }
+
+
+            .blog-hero p {
+
+                font-size: 15px;
+
+                line-height: 1.6;
+            }
+
+
+            /* BLOG GRID */
+
+            .blog-container {
+
+                width: 90%;
+
+                margin-bottom: 45px;
+            }
+
+
+            .blog-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 22px;
+            }
+
+
+            .blog-image {
+
+                height: 210px;
+            }
+
+
+            .blog-content {
+
+                padding: 20px;
+            }
+
+
+            .blog-content h2 {
+
+                font-size: 20px;
+            }
+
+        }
+
+
+        /* ========================================
+           SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 480px) {
+
+            .nav {
+
+                min-height: 60px;
+
+                padding:
+                    9px 4%;
+            }
+
+
+            .menu-toggle {
+
+                width: 35px;
+
+                height: 35px;
+
+                font-size: 22px;
+            }
+
+
+            .logo img {
+
+                width: 37px;
+
+                height: 37px;
+            }
+
+
+            .company h2 {
+
+                font-size: 16px;
+            }
+
+
+            .blog-hero {
+
+                padding:
+                    38px 5% 30px;
+            }
+
+
+            .blog-hero h1 {
+
+                font-size: 40px;
+            }
+
+
+            .blog-hero h2 {
+
+                font-size: 19px;
+            }
+
+
+            .blog-hero p {
+
+                font-size: 14px;
+            }
+
+
+            .blog-image {
+
+                height: 190px;
+            }
+
+
+            .blog-content {
+
+                padding: 18px;
+            }
+
+
+            .blog-content h2 {
+
+                font-size: 18px;
+            }
+
+
+            .blog-content p {
+
+                font-size: 13px;
+            }
+
+        }
+
+
+        /* ========================================
+           VERY SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 360px) {
+
+            .logo img {
+
+                width: 34px;
+
+                height: 34px;
+            }
+
+
+            .company h2 {
+
+                font-size: 14px;
+            }
+
+
+            .blog-hero h1 {
+
+                font-size: 36px;
+            }
+
+
+            .blog-hero h2 {
+
+                font-size: 17px;
+            }
+
+
+            .blog-image {
+
+                height: 175px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+
+    <nav class="nav">
+
+
+        <!-- LEFT AREA -->
+
+        <div class="left-area">
+
+
+            <!-- HAMBURGER -->
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- LOGO -->
+
+            <div class="companylogo">
+
+
+                <div class="logo">
+
+                    <img
+                        src="Images/company logo.jpeg"
+                        alt="Powfect Logo"
+                    >
+
+                </div>
+
+
+                <div class="company">
+
+                    <h2>
+                        POWFECT
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- NAV LINKS -->
+
+        <div
+            class="navhome"
+            id="navLinks"
+        >
+
+
+            <div class="nav1">
+
+                <a href="home.html">
+                    Home
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="products.html">
+                    Products
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a
+                    href="Blog.html"
+                    class="active"
+                >
+                    Blogs
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="my-orders.html">
+                    My Orders
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </nav>
+
+
+    <!-- ========================================
+         BLOG HERO
+    ======================================== -->
+
+    <section class="blog-hero">
+
+        <h1>
+            Pet Care Blogs
+        </h1>
+
+        <h2>
+            Love, Care & Comfort for Your Beloved Pets
+        </h2>
+
+        <p>
+            Discover simple and useful tips to keep your
+            furry friends healthy, happy and comfortable
+            every day.
+        </p>
+
+    </section>
+
+
+    <!-- ========================================
+         BLOG SECTION
+    ======================================== -->
+
+    <main class="blog-container">
+
+
+        <div class="blog-grid">
+
+
+            <!-- BLOG 1 -->
+
+            <article class="blog-card">
+
+
+                <div class="blog-image">
+
+                    <img
+                        src="Images/daily petcRE.jfif"
+                        alt="Pet Care"
+                    >
+
+                </div>
+
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Pet Care
+                    </span>
+
+                    <h2>
+                        Simple Ways to Keep Your Pet Healthy
+                    </h2>
+
+                    <p>
+                        Learn some simple daily habits that
+                        can help your pet stay healthy,
+                        active and happy.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="read-more"
+                    >
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="blog-details">
+
+                        A balanced routine, clean drinking
+                        water, regular exercise and proper
+                        grooming are important parts of
+                        everyday pet care. Spend quality time
+                        with your pet and always observe
+                        changes in their behaviour.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 2 -->
+
+            <article class="blog-card">
+
+
+                <div class="blog-image">
+
+                    <img
+                        src="Images/dog premium food.png"
+                        alt="Pet Nutrition"
+                    >
+
+                </div>
+
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Nutrition
+                    </span>
+
+                    <h2>
+                        Choosing the Right Food for Your Pet
+                    </h2>
+
+                    <p>
+                        Good nutrition plays an important
+                        role in keeping pets energetic and
+                        healthy.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="read-more"
+                    >
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="blog-details">
+
+                        Choose food according to your pet's
+                        age, size and nutritional needs.
+                        Always provide fresh water and avoid
+                        giving foods that may be harmful to
+                        pets.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 3 -->
+
+            <article class="blog-card">
+
+
+                <div class="blog-image">
+
+                    <img
+                        src="Images/grooming24.png"
+                        alt="Pet Grooming"
+                    >
+
+                </div>
+
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Grooming
+                    </span>
+
+                    <h2>
+                        Why Regular Grooming Matters
+                    </h2>
+
+                    <p>
+                        Grooming helps pets stay clean,
+                        comfortable and looking their best.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="read-more"
+                    >
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="blog-details">
+
+                        Regular brushing can help remove
+                        loose hair and dirt. Bathing should
+                        be done when needed using products
+                        suitable for pets. Grooming also gives
+                        you a chance to notice skin or coat
+                        changes early.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 4 -->
+
+            <article class="blog-card">
+
+
+                <div class="blog-image">
+
+                    <img
+                        src="Images/dental care.jfif"
+                        alt="Veterinary Care"
+                    >
+
+                </div>
+
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Veterinary
+                    </span>
+
+                    <h2>
+                        Importance of Regular Vet Visits
+                    </h2>
+
+                    <p>
+                        Regular veterinary checkups can help
+                        monitor your pet's overall health.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="read-more"
+                    >
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="blog-details">
+
+                        Routine checkups help veterinarians
+                        monitor your pet's health and provide
+                        preventive care such as vaccinations
+                        when appropriate. Contact a qualified
+                        veterinarian if you notice unusual
+                        symptoms or behaviour.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 5 -->
+
+            <article class="blog-card">
+
+
+                <div class="blog-image">
+
+                    <img
+                        src="Images/basic tyraining.jfif"
+                        alt="Dog Training"
+                    >
+
+                </div>
+
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Training
+                    </span>
+
+                    <h2>
+                        Easy Training Tips for Dogs
+                    </h2>
+
+                    <p>
+                        Positive training can help build a
+                        better relationship between you and
+                        your dog.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="read-more"
+                    >
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="blog-details">
+
+                        Keep training sessions short and
+                        consistent. Reward good behaviour
+                        with praise, treats or play. Patience
+                        and positive reinforcement can make
+                        learning more enjoyable for your dog.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLOG 6 -->
+
+            <article class="blog-card">
+
+
+                <div class="blog-image">
+
+                    <img
+                        src="Images/dog cat 2.jfif"
+                        alt="Cat Care"
+                    >
+
+                </div>
+
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Cat Care
+                    </span>
+
+                    <h2>
+                        Creating a Comfortable Home for Cats
+                    </h2>
+
+                    <p>
+                        A safe and comfortable environment
+                        helps cats feel relaxed and secure.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="read-more"
+                    >
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="blog-details">
+
+                        Give your cat clean water, a suitable
+                        litter area, comfortable resting spaces
+                        and opportunities for play. Keep
+                        potentially dangerous items away from
+                        curious pets.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026
+            <span>Powfect</span>
+            . All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- BLOG JAVASCRIPT -->
+
+    <script src="Blog.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect </title>
+
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        href="Images/company logo.jpeg"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            min-height: 100vh;
+
+            background-image:
+                url("Images/frontimage.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            color: #4b2e22;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .nav {
+
+            width: 100%;
+
+            padding: 18px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 4px 18px rgba(113, 63, 35, 0.18);
+        }
+
+
+        .companylogo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .logo {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+        }
+
+
+        .logo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        .company h2 {
+
+            color: #6b351f;
+
+            font-size: 24px;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .home-link {
+
+            text-decoration: none;
+
+            color: #6b351f;
+
+            font-weight: 600;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 17px;
+
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+
+        .home-link:hover {
+
+            background: #7b3f27;
+
+            color: white;
+        }
+
+
+        /* =========================
+           PROFILE SECTION
+        ========================= */
+
+        .profile-page {
+
+            min-height: calc(100vh - 88px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 45px 20px;
+        }
+
+
+        .profile-card {
+
+            width: 100%;
+
+            max-width: 780px;
+
+            background: rgba(255, 255, 255, 0.82);
+
+            backdrop-filter: blur(12px);
+
+            -webkit-backdrop-filter: blur(12px);
+
+            border-radius: 25px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 15px 40px rgba(91, 48, 27, 0.18);
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .heading {
+
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .heading h1 {
+
+            color: #6b351f;
+
+            font-size: 38px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .heading p {
+
+            color: #86675a;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           USER HEADER
+        ========================= */
+
+        .user-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            background: #fff4ed;
+
+            border-radius: 18px;
+
+            padding: 18px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .user-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            border-radius: 50%;
+
+            background: #7b3f27;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 26px;
+        }
+
+
+        .user-header h2 {
+
+            color: #603827;
+
+            font-size: 21px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .user-header p {
+
+            color: #86675a;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-title {
+
+            color: #6b351f;
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .full {
+
+            grid-column: 1 / -1;
+        }
+
+
+        .form-group label {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #603827;
+
+            margin-bottom: 8px;
+        }
+
+
+        .form-group label i {
+
+            color: #9a5433;
+
+            margin-right: 6px;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+
+            width: 100%;
+
+            border: 1px solid #d9c0b4;
+
+            border-radius: 12px;
+
+            padding: 13px 14px;
+
+            outline: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            color: #4b2e22;
+
+            background: rgba(255,255,255,0.85);
+
+            transition: 0.3s;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: #9a5433;
+
+            box-shadow:
+                0 0 0 3px rgba(154, 84, 51, 0.10);
+        }
+
+
+        .form-group input[readonly] {
+
+            background: #eee4de;
+
+            color: #89766d;
+
+            cursor: not-allowed;
+        }
+
+
+        .form-group textarea {
+
+            min-height: 100px;
+
+            resize: vertical;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 28px;
+        }
+
+
+        .buttons button {
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .save-btn {
+
+            background: #7b3f27;
+
+            color: white;
+        }
+
+
+        .save-btn:hover {
+
+            background: #5e2e1d;
+
+            transform: translateY(-2px);
+        }
+
+
+        .cancel-btn {
+
+            background: #eadbd2;
+
+            color: #6b351f;
+        }
+
+
+        .cancel-btn:hover {
+
+            background: #dbc5b9;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
+
+        .success {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 13px;
+
+            text-align: center;
+
+            background: #e6f5e8;
+
+            color: #32713a;
+
+            border: 1px solid #b8dcbc;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           QUICK LINKS
+        ========================= */
+
+        .quick-links {
+
+            border-top: 1px solid #e3d3ca;
+
+            margin-top: 28px;
+
+            padding-top: 22px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .quick-links a {
+
+            text-decoration: none;
+
+            color: #6b351f;
+
+            background: #fff5ef;
+
+            border: 1px solid #dfc9bd;
+
+            padding: 10px 16px;
+
+            border-radius: 22px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .quick-links a:hover {
+
+            background: #7b3f27;
+
+            color: white;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .nav {
+
+                padding: 14px 4%;
+            }
+
+
+            .company h2 {
+
+                font-size: 20px;
+            }
+
+
+            .logo {
+
+                width: 45px;
+
+                height: 45px;
+            }
+
+
+            .home-link {
+
+                padding: 8px 12px;
+
+                font-size: 13px;
+            }
+
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .full {
+
+                grid-column: auto;
+            }
+
+
+            .profile-card {
+
+                padding: 25px 20px;
+            }
+
+
+            .heading h1 {
+
+                font-size: 30px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .company h2 {
+
+                font-size: 18px;
+            }
+
+
+            .logo {
+
+                width: 40px;
+
+                height: 40px;
+            }
+
+
+            .home-link span {
+
+                display: none;
+            }
+
+
+            .profile-page {
+
+                padding: 25px 12px;
+            }
+
+
+            .profile-card {
+
+                padding: 22px 16px;
+
+                border-radius: 20px;
+            }
+
+
+            .user-icon {
+
+                width: 55px;
+
+                height: 55px;
+            }
+
+
+            .user-header h2 {
+
+                font-size: 18px;
+            }
+
+
+            .buttons {
+
+                flex-direction: column;
+            }
+
+
+            .buttons button {
+
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="nav">
+
+        <div class="companylogo">
+
+            <div class="logo">
+
+                <img
+                    src="Images/company logo.jpeg"
+                    alt="Powfect Logo"
+                >
+
+            </div>
+
+
+            <div class="company">
+
+                <h2>POWFECT</h2>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="home.html"
+            class="home-link"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================
+         PROFILE
+    ========================= -->
+
+    <main class="profile-page">
+
+
+        <div class="profile-card">
+
+
+            <div class="heading">
+
+                <h1>My Profile</h1>
+
+                <p>
+                    View and update your account details
+                </p>
+
+            </div>
+
+
+
+            <!-- USER HEADER -->
+
+            <div class="user-header">
+
+                <div class="user-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2 id="displayName">
+                        User
+                    </h2>
+
+                    <p id="displayEmail">
+                        Email
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <h3 class="form-title">
+
+                <i class="fa-solid fa-user-pen"></i>
+
+                Edit Profile
+
+            </h3>
+
+
+
+            <form id="profileForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            readonly
+                        >
+
+                    </div>
+
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            Mobile Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            maxlength="10"
+                            placeholder="Enter mobile number"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="form-group full">
+
+                        <label for="address">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Address
+
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter your address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Save Changes
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelBtn"
+                    >
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+
+            <!-- SUCCESS -->
+
+            <div
+                class="success"
+                id="successMessage"
+            >
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Profile updated successfully!
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="quick-links">
+
+                <a href="my-orders.html">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    My Orders
+
+                </a>
+
+
+                <a href="products.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Products
+
+                </a>
+
+
+                <a href="home.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Home
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         PROFILE JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =========================
+                   GET SAVED USER
+                ========================= */
+
+                const savedUser =
+                    localStorage.getItem(
+                        "powfectUser"
+                    );
+
+
+                const isLoggedIn =
+                    localStorage.getItem(
+                        "powfectLoggedIn"
+                    );
+
+
+
+                /* =========================
+                   LOGIN CHECK
+                ========================= */
+
+                if (
+                    !savedUser ||
+                    isLoggedIn !== "true"
+                ) {
+
+                    window.location.href =
+                        "customer-login.html";
+
+                    return;
+                }
+
+
+
+                const user =
+                    JSON.parse(savedUser);
+
+
+
+                /* =========================
+                   ELEMENTS
+                ========================= */
+
+                const nameInput =
+                    document.getElementById(
+                        "name"
+                    );
+
+
+                const emailInput =
+                    document.getElementById(
+                        "email"
+                    );
+
+
+                const mobileInput =
+                    document.getElementById(
+                        "mobile"
+                    );
+
+
+                const addressInput =
+                    document.getElementById(
+                        "address"
+                    );
+
+
+                const displayName =
+                    document.getElementById(
+                        "displayName"
+                    );
+
+
+                const displayEmail =
+                    document.getElementById(
+                        "displayEmail"
+                    );
+
+
+                const profileForm =
+                    document.getElementById(
+                        "profileForm"
+                    );
+
+
+                const cancelBtn =
+                    document.getElementById(
+                        "cancelBtn"
+                    );
+
+
+                const successMessage =
+                    document.getElementById(
+                        "successMessage"
+                    );
+
+
+
+                /* =========================
+                   LOAD USER DETAILS
+                ========================= */
+
+                nameInput.value =
+                    user.name || "";
+
+
+                emailInput.value =
+                    user.email || "";
+
+
+                mobileInput.value =
+                    user.mobile || "";
+
+
+                addressInput.value =
+                    user.address || "";
+
+
+                displayName.textContent =
+                    user.name || "User";
+
+
+                displayEmail.textContent =
+                    user.email || "Email";
+
+
+
+                /* =========================
+                   SAVE CHANGES
+                ========================= */
+
+                profileForm.addEventListener(
+                    "submit",
+                    function (event) {
+
+                        event.preventDefault();
+
+
+                        const newName =
+                            nameInput.value.trim();
+
+
+                        const newMobile =
+                            mobileInput.value.trim();
+
+
+                        const newAddress =
+                            addressInput.value.trim();
+
+
+
+                        if (
+                            newName === "" ||
+                            newMobile === "" ||
+                            newAddress === ""
+                        ) {
+
+                            alert(
+                                "Please fill all the details."
+                            );
+
+                            return;
+                        }
+
+
+
+                        if (
+                            !/^[0-9]{10}$/.test(
+                                newMobile
+                            )
+                        ) {
+
+                            alert(
+                                "Please enter a valid 10-digit mobile number."
+                            );
+
+                            return;
+                        }
+
+
+
+                        /* UPDATE */
+
+                        user.name =
+                            newName;
+
+
+                        user.mobile =
+                            newMobile;
+
+
+                        user.address =
+                            newAddress;
+
+
+
+                        /* SAVE */
+
+                        localStorage.setItem(
+                            "powfectUser",
+                            JSON.stringify(user)
+                        );
+
+
+
+                        /* UPDATE HEADER */
+
+                        displayName.textContent =
+                            user.name;
+
+
+                        displayEmail.textContent =
+                            user.email;
+
+
+
+                        /* SUCCESS */
+
+                        successMessage.style.display =
+                            "block";
+
+
+                        setTimeout(
+                            function () {
+
+                                successMessage.style.display =
+                                    "none";
+
+                            },
+                            3000
+                        );
+
+                    }
+                );
+
+
+
+                /* =========================
+                   CANCEL
+                ========================= */
+
+                cancelBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        nameInput.value =
+                            user.name || "";
+
+
+                        mobileInput.value =
+                            user.mobile || "";
+
+
+                        addressInput.value =
+                            user.address || "";
+
+
+                        successMessage.style.display =
+                            "none";
+
+                    }
+                );
+
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

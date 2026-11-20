@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect </title>
+
+
+    <!-- FONT AWESOME -->
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous">
+    </script>
+
+
+    <style>
+
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* ================================
+           BODY
+        ================================= */
+
+        body {
+
+            background: #f8f0df;
+
+            font-family: Arial, sans-serif;
+
+            color: #333;
+
+        }
+
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        .navbar {
+
+            width: 100%;
+
+            min-height: 70px;
+
+            padding: 0 5%;
+
+            background: #fffaf0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 1px solid #eee1d2;
+
+            position: relative;
+
+        }
+
+
+        /* ================================
+           LOGO AREA
+        ================================= */
+
+        .logo-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #b9572d;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+
+        }
+
+
+        .logo span:first-child {
+
+            font-size: 27px;
+
+        }
+
+
+        /* ================================
+           MENU TOGGLE
+        ================================= */
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: #b9572d;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            padding: 5px;
+
+        }
+
+
+        /* ================================
+           NAV LINKS
+        ================================= */
+
+        .nav-links {
+
+            list-style: none;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links li {
+
+            list-style: none;
+
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #5a3825;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #b9572d;
+
+        }
+
+
+        .nav-links a.active {
+
+            color: #b9572d;
+
+        }
+
+
+        /* ================================
+           CART
+        ================================= */
+
+        .cart-link {
+
+            position: relative;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-decoration: none;
+
+            color: #b9572d;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .cart-link i {
+
+            font-size: 25px;
+
+        }
+
+
+        .cart-count {
+
+            position: absolute;
+
+            top: -5px;
+
+            right: -5px;
+
+            min-width: 20px;
+
+            height: 20px;
+
+            padding: 0 5px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background-color: #b9572d;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            border: 2px solid #fffaf0;
+
+            line-height: 1;
+
+        }
+
+
+        /* ================================
+           PAGE
+        ================================= */
+
+        .my-orders-container {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: 45px auto;
+
+        }
+
+
+        .page-title {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .page-title h1 {
+
+            color: #5a3825;
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .page-title p {
+
+            color: #777;
+
+            margin: 0;
+
+        }
+
+
+        /* ================================
+           ORDER CARD
+        ================================= */
+
+        .order-card {
+
+            background: #ffffff;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        /* ================================
+           ORDER HEADER
+        ================================= */
+
+        .order-card-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #eeeeee;
+
+            padding-bottom: 18px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .order-card-header h2 {
+
+            margin: 0 0 7px;
+
+            color: #5a3825;
+
+            font-size: 22px;
+
+        }
+
+
+        .order-card-header p {
+
+            margin: 0;
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        .order-status {
+
+            background: #e7f6e7;
+
+            color: #2e7d32;
+
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ================================
+           CUSTOMER DETAILS
+        ================================= */
+
+        .order-customer {
+
+            background: #faf7ef;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .order-customer p {
+
+            margin: 7px 0;
+
+            color: #555;
+
+        }
+
+
+        .order-customer strong {
+
+            color: #5a3825;
+
+        }
+
+
+        /* ================================
+           PRODUCTS
+        ================================= */
+
+        .order-products {
+
+            width: 100%;
+
+        }
+
+
+        .order-product {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #eeeeee;
+
+        }
+
+
+        .order-product img {
+
+            width: 85px !important;
+
+            height: 85px !important;
+
+            min-width: 85px !important;
+
+            max-width: 85px !important;
+
+            min-height: 85px !important;
+
+            max-height: 85px !important;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            display: block;
+
+        }
+
+
+        .order-product-info {
+
+            flex: 1;
+
+        }
+
+
+        .order-product-info h3 {
+
+            margin: 0 0 7px;
+
+            color: #5a3825;
+
+            font-size: 17px;
+
+        }
+
+
+        .order-product-info p {
+
+            margin: 0;
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        .order-product > strong {
+
+            color: #5a3825;
+
+            font-size: 16px;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* ================================
+           ORDER BOTTOM
+        ================================= */
+
+        .order-bottom {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 22px;
+
+            gap: 15px;
+
+        }
+
+
+        .order-total {
+
+            color: #5a3825;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            margin-left: 8px;
+
+        }
+
+
+        /* ================================
+           VIEW DETAILS BUTTON
+        ================================= */
+
+        .view-details-btn {
+
+            border: none;
+
+            background: #5a3825;
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .view-details-btn:hover {
+
+            background: #402719;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .view-details-btn i {
+
+            margin-left: 6px;
+
+        }
+
+
+        /* ================================
+           EMPTY ORDERS
+        ================================= */
+
+        .empty-orders {
+
+            background: white;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .empty-orders i {
+
+            font-size: 60px;
+
+            color: #c8a27a;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .empty-orders h2 {
+
+            color: #5a3825;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .empty-orders p {
+
+            color: #777;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .empty-orders a {
+
+            display: inline-block;
+
+            background: #5a3825;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+        }
+
+
+        /* ========================================
+           ORDER TRACKING
+        ======================================== */
+
+        .tracking-section {
+
+            margin: 25px 0;
+
+            padding: 20px;
+
+            background: #faf7ef;
+
+            border-radius: 12px;
+
+        }
+
+
+        .tracking-section h3 {
+
+            margin: 0 0 25px;
+
+            color: #5a3825;
+
+            font-size: 19px;
+
+        }
+
+
+        .tracking-container {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            padding: 5px 0 10px;
+
+        }
+
+
+        .tracking-step {
+
+            min-width: 110px;
+
+            text-align: center;
+
+            position: relative;
+
+        }
+
+
+        .tracking-circle {
+
+            width: 38px;
+
+            height: 38px;
+
+            margin: 0 auto 10px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: bold;
+
+            border: 2px solid #d5d5d5;
+
+            background: white;
+
+            color: #999;
+
+        }
+
+
+        .tracking-step.completed .tracking-circle {
+
+            background: #5a3825;
+
+            border-color: #5a3825;
+
+            color: white;
+
+        }
+
+
+        .tracking-step.current .tracking-circle {
+
+            background: #e7c9a5;
+
+            border-color: #5a3825;
+
+            color: #5a3825;
+
+        }
+
+
+        .tracking-step.pending .tracking-circle {
+
+            background: white;
+
+            border-color: #d5d5d5;
+
+            color: #aaa;
+
+        }
+
+
+        .tracking-label {
+
+            font-size: 12px;
+
+            color: #999;
+
+            line-height: 1.3;
+
+        }
+
+
+        .tracking-step.completed .tracking-label {
+
+            color: #5a3825;
+
+            font-weight: bold;
+
+        }
+
+
+        .tracking-step.current .tracking-label {
+
+            color: #5a3825;
+
+            font-weight: bold;
+
+        }
+
+
+        .tracking-line {
+
+            flex: 1;
+
+            height: 3px;
+
+            background: #ddd;
+
+            margin-top: 18px;
+
+            min-width: 30px;
+
+        }
+
+
+        .tracking-line.completed-line {
+
+            background: #5a3825;
+
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 700px) {
+
+
+            /* ================================
+               NAVBAR
+            ================================= */
+
+            .navbar {
+
+                min-height: 65px;
+
+                padding: 0 18px;
+
+            }
+
+
+            .logo-area {
+
+                gap: 8px;
+
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+
+            }
+
+
+            .logo {
+
+                font-size: 22px;
+
+            }
+
+
+            .logo span:first-child {
+
+                font-size: 24px;
+
+            }
+
+
+            .nav-links {
+
+                display: none;
+
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: #fffaf0;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 0;
+
+                padding: 10px 0;
+
+                box-shadow:
+                    0 8px 15px rgba(0, 0, 0, 0.08);
+
+                z-index: 1000;
+
+            }
+
+
+            .nav-links.active {
+
+                display: flex;
+
+            }
+
+
+            .nav-links li {
+
+                width: 100%;
+
+            }
+
+
+            .nav-links a {
+
+                display: block;
+
+                width: 100%;
+
+                padding: 14px 25px;
+
+            }
+
+
+            .nav-links a:hover {
+
+                background: #f8f0df;
+
+            }
+
+
+            .cart-link {
+
+                width: 40px;
+
+                height: 40px;
+
+            }
+
+
+            .cart-link i {
+
+                font-size: 24px;
+
+            }
+
+
+            .cart-count {
+
+                top: -4px;
+
+                right: -4px;
+
+            }
+
+
+            /* ================================
+               PAGE
+            ================================= */
+
+            .my-orders-container {
+
+                width: 94%;
+
+                margin: 30px auto;
+
+            }
+
+
+            .page-title h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .order-card {
+
+                padding: 18px;
+
+            }
+
+
+            .order-card-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+
+            }
+
+
+            /* ================================
+               PRODUCTS
+            ================================= */
+
+            .order-product {
+
+                gap: 12px;
+
+            }
+
+
+            .order-product img {
+
+                width: 70px !important;
+
+                height: 70px !important;
+
+                min-width: 70px !important;
+
+                max-width: 70px !important;
+
+                min-height: 70px !important;
+
+                max-height: 70px !important;
+
+            }
+
+
+            .order-product-info h3 {
+
+                font-size: 15px;
+
+            }
+
+
+            .order-bottom {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+
+            .view-details-btn {
+
+                width: 100%;
+
+            }
+
+
+            /* ================================
+               TRACKING MOBILE FIX
+            ================================= */
+
+            .tracking-section {
+
+                margin: 20px 0;
+
+                padding: 15px 8px;
+
+                overflow: hidden;
+
+            }
+
+
+            .tracking-section h3 {
+
+                font-size: 17px;
+
+                margin-bottom: 20px;
+
+            }
+
+
+            .tracking-container {
+
+                width: 100%;
+
+                min-width: 0;
+
+                overflow: hidden;
+
+                display: flex;
+
+                align-items: flex-start;
+
+                padding: 0;
+
+            }
+
+
+            .tracking-step {
+
+                min-width: 0;
+
+                flex: 1;
+
+            }
+
+
+            .tracking-circle {
+
+                width: 30px;
+
+                height: 30px;
+
+                font-size: 12px;
+
+                margin-bottom: 7px;
+
+            }
+
+
+            .tracking-label {
+
+                font-size: 9px;
+
+                line-height: 1.2;
+
+                padding: 0 2px;
+
+                word-break: normal;
+
+            }
+
+
+            .tracking-line {
+
+                flex: 0.35;
+
+                min-width: 5px;
+
+                height: 2px;
+
+                margin-top: 14px;
+
+            }
+
+        }
+
+
+        /* ========================================
+           SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 400px) {
+
+            .page-title h1 {
+
+                font-size: 25px;
+
+            }
+
+
+            .order-card {
+
+                padding: 15px;
+
+            }
+
+
+            .tracking-section {
+
+                padding: 15px 5px;
+
+            }
+
+
+            .tracking-circle {
+
+                width: 28px;
+
+                height: 28px;
+
+                font-size: 11px;
+
+            }
+
+
+            .tracking-label {
+
+                font-size: 8px;
+
+            }
+
+
+            .tracking-line {
+
+                min-width: 4px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <nav class="navbar">
+
+
+        <div class="logo-area">
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <span>🐾</span>
+
+                <span>Powfect</span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAV LINKS -->
+
+        <ul
+            class="nav-links"
+            id="navLinks">
+
+
+            <li>
+
+                <a href="home.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="products.html">
+
+                    Products
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="Blog.html">
+
+                    Blogs
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About Us
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="my-orders.html"
+                    class="active">
+
+                    My Orders
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+
+
+        <!-- CART -->
+
+        <a
+            href="cart.html"
+            class="cart-link">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span
+                class="cart-count"
+                id="cartCount">
+
+                0
+
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main class="my-orders-container">
+
+
+        <div class="page-title">
+
+            <h1>
+
+                My Orders
+
+            </h1>
+
+
+            <p>
+
+                View and manage your previous orders
+
+            </p>
+
+        </div>
+
+
+
+        <div id="ordersContainer">
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         MY ORDERS JS
+    ================================= -->
+
+    <script src="my-orders.js"></script>
+
+
+
+    <!-- ================================
+         MOBILE MENU
+    ================================= -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        if (menuToggle && navLinks) {
+
+
+            menuToggle.addEventListener(
+                "click",
+                function () {
+
+                    navLinks.classList.toggle("active");
+
+                }
+            );
+
+
+            navLinks
+                .querySelectorAll("a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navLinks.classList.remove("active");
+
+                        }
+                    );
+
+                });
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !navLinks.contains(event.target) &&
+                        !menuToggle.contains(event.target)
+                    ) {
+
+                        navLinks.classList.remove("active");
+
+                    }
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

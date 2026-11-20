@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Powfect </title>
+
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        href="Images/company logo.jpeg"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <script
+        src="https://kit.fontawesome.com/d1f9284067.js"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <style>
+
+        /* ========================================
+           GLOBAL RESET
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f5e8d5;
+
+            color: #3a1e14;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+
+        .nav {
+
+            width: 100%;
+
+            padding: 18px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            position: relative;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, 0.55);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+            box-shadow:
+                0 3px 20px
+                rgba(139, 69, 19, 0.12);
+        }
+
+
+        /* ========================================
+           LEFT AREA
+        ======================================== */
+
+        .left-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* ========================================
+           MENU BUTTON
+        ======================================== */
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: #3a1e14;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            padding: 5px;
+
+            line-height: 1;
+        }
+
+
+        /* ========================================
+           COMPANY LOGO
+        ======================================== */
+
+        .companylogo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: #2b8597;
+
+            text-shadow:
+                2px 2px 10px
+                rgba(15, 65, 75, 0.7);
+
+            flex-shrink: 0;
+        }
+
+
+        .logo img {
+
+            width: 50px;
+
+            height: 50px;
+
+            display: block;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+        }
+
+
+        .company h2 {
+
+            font-size: 22px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ========================================
+           NAV LINKS
+        ======================================== */
+
+        .navhome {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 28px;
+        }
+
+
+        .nav1 a {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding: 8px 0;
+
+            color: #202020;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        /* ========================================
+           NAV UNDERLINE
+        ======================================== */
+
+        .nav1 a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background-color: #b9572d;
+
+            transition:
+                width 0.3s ease;
+        }
+
+
+        .nav1 a:hover::after,
+        .nav1 a.active::after {
+
+            width: 100%;
+        }
+
+
+        /* ========================================
+           ABOUT HERO
+        ======================================== */
+
+        .about-hero {
+
+            width: 100%;
+
+            padding:
+                65px 6% 45px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(245, 232, 213, 0.85),
+                    rgba(245, 232, 213, 0.95)
+                );
+        }
+
+
+        .about-hero h1 {
+
+            color: #8b4513;
+
+            font-family: cursive;
+
+            font-size:
+                clamp(45px, 6vw, 65px);
+
+            line-height: 1.1;
+
+            margin-bottom: 12px;
+        }
+
+
+        .about-hero h2 {
+
+            color: #3a1e14;
+
+            font-size:
+                clamp(20px, 3vw, 28px);
+
+            margin-bottom: 12px;
+        }
+
+
+        .about-hero p {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #555;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ========================================
+           MAIN CONTAINER
+        ======================================== */
+
+        .about-container {
+
+            width: 90%;
+
+            max-width: 1150px;
+
+            margin:
+                10px auto 70px;
+        }
+
+
+        /* ========================================
+           INTRO SECTION
+        ======================================== */
+
+        .intro-section {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 35px;
+
+            align-items: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .intro-image {
+
+            width: 100%;
+
+            height: 330px;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 22px
+                rgba(80, 50, 30, 0.18);
+        }
+
+
+        .intro-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .intro-content {
+
+            padding: 10px;
+        }
+
+
+        .section-title {
+
+            color: #8b4513;
+
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .intro-content p {
+
+            color: #555;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* ========================================
+           INFO CARDS
+        ======================================== */
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .info-card {
+
+            padding: 28px 22px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, 0.72);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(80, 50, 30, 0.13);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .info-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 10px 24px
+                rgba(80, 50, 30, 0.2);
+        }
+
+
+        .info-card i {
+
+            font-size: 35px;
+
+            color: #a35116;
+
+            margin-bottom: 15px;
+        }
+
+
+        .info-card h3 {
+
+            color: #3a1e14;
+
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .info-card p {
+
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ========================================
+           WHAT WE OFFER
+        ======================================== */
+
+        .offer-section {
+
+            margin-bottom: 35px;
+
+            padding:
+                35px 30px;
+
+            background:
+                rgba(255, 255, 255, 0.55);
+
+            border-radius: 20px;
+        }
+
+
+        .offer-title {
+
+            text-align: center;
+
+            color: #8b4513;
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .offer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .offer-item {
+
+            padding:
+                22px 10px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            background:
+                rgba(245, 232, 213, 0.85);
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .offer-item:hover {
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        .offer-item i {
+
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: #a35116;
+
+            font-size: 27px;
+        }
+
+
+        .offer-item span {
+
+            color: #3a1e14;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* ========================================
+           FOUNDER SECTION
+        ======================================== */
+
+        .founder-section {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 25px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .founder-card,
+        .team-card {
+
+            padding:
+                30px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(80, 50, 30, 0.13);
+        }
+
+
+        .founder-card i,
+        .team-card i {
+
+            width: 75px;
+
+            height: 75px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin:
+                0 auto 15px;
+
+            border-radius: 50%;
+
+            background-color: #f1d4b5;
+
+            color: #8b4513;
+
+            font-size: 32px;
+        }
+
+
+        .founder-card h3,
+        .team-card h3 {
+
+            color: #8b4513;
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .founder-card p,
+        .team-card p {
+
+            color: #666;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ========================================
+           WHY POWFECT
+        ======================================== */
+
+        .why-section {
+
+            padding:
+                35px 30px;
+
+            text-align: center;
+
+            background-color: #8b4513;
+
+            border-radius: 20px;
+
+            color: #ffffff;
+        }
+
+
+        .why-section h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .why-section p {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #f8e9d8;
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        .footer {
+
+            width: 100%;
+
+            padding:
+                25px 5%;
+
+            text-align: center;
+
+            background-color: #3a1e14;
+
+            color: #ffffff;
+
+            font-size: 14px;
+        }
+
+
+        .footer span {
+
+            color: #f1c49a;
+        }
+
+
+        /* ========================================
+           TABLET
+        ======================================== */
+
+        @media (max-width: 1023px) {
+
+            .nav {
+
+                padding:
+                    16px 4%;
+            }
+
+
+            .navhome {
+
+                gap: 20px;
+            }
+
+
+            .offer-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 767px) {
+
+            /* NAVBAR */
+
+            .nav {
+
+                width: 100%;
+
+                min-height: 64px;
+
+                padding:
+                    10px 5%;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: flex-start;
+
+                gap: 8px;
+
+                background:
+                    rgba(255, 255, 255, 0.75);
+            }
+
+
+            .left-area {
+
+                width: 100%;
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 8px;
+            }
+
+
+            .menu-toggle {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                width: 38px;
+
+                height: 38px;
+
+                padding: 0;
+
+                font-size: 23px;
+            }
+
+
+            .companylogo {
+
+                gap: 8px;
+            }
+
+
+            .logo img {
+
+                width: 40px;
+
+                height: 40px;
+            }
+
+
+            .company h2 {
+
+                font-size: 18px;
+            }
+
+
+            /* MOBILE NAV MENU */
+
+            .navhome {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                width: 100%;
+
+                padding:
+                    8px 5% 12px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 0;
+
+                background:
+                    rgba(255, 255, 255, 0.97);
+
+                backdrop-filter: blur(12px);
+
+                -webkit-backdrop-filter: blur(12px);
+
+                box-shadow:
+                    0 8px 20px
+                    rgba(0, 0, 0, 0.15);
+
+                z-index: 9999;
+            }
+
+
+            .navhome.active {
+
+                display: flex;
+            }
+
+
+            .nav1 {
+
+                width: 100%;
+            }
+
+
+            .nav1 a {
+
+                width: 100%;
+
+                display: block;
+
+                padding:
+                    12px 5px;
+
+                font-size: 15px;
+
+                color: #202020;
+            }
+
+
+            /* HERO */
+
+            .about-hero {
+
+                padding:
+                    45px 6% 35px;
+            }
+
+
+            .about-hero h1 {
+
+                font-size: 45px;
+            }
+
+
+            .about-hero h2 {
+
+                font-size: 21px;
+
+                line-height: 1.4;
+            }
+
+
+            .about-hero p {
+
+                font-size: 15px;
+
+                line-height: 1.6;
+            }
+
+
+            /* CONTAINER */
+
+            .about-container {
+
+                width: 90%;
+
+                margin-bottom: 45px;
+            }
+
+
+            /* INTRO */
+
+            .intro-section {
+
+                grid-template-columns: 1fr;
+
+                gap: 22px;
+
+                margin-bottom: 25px;
+            }
+
+
+            .intro-image {
+
+                height: 230px;
+            }
+
+
+            .intro-content {
+
+                padding: 0;
+            }
+
+
+            .section-title {
+
+                font-size: 27px;
+
+                text-align: center;
+            }
+
+
+            .intro-content p {
+
+                font-size: 14px;
+
+                line-height: 1.7;
+            }
+
+
+            /* INFO */
+
+            .info-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+
+                margin-bottom: 25px;
+            }
+
+
+            .info-card {
+
+                padding: 24px 20px;
+            }
+
+
+            /* OFFER */
+
+            .offer-section {
+
+                padding:
+                    28px 18px;
+
+                margin-bottom: 25px;
+            }
+
+
+            .offer-title {
+
+                font-size: 27px;
+            }
+
+
+            .offer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 12px;
+            }
+
+
+            .offer-item {
+
+                padding:
+                    20px 8px;
+            }
+
+
+            /* FOUNDER */
+
+            .founder-section {
+
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+
+                margin-bottom: 25px;
+            }
+
+
+            .founder-card,
+            .team-card {
+
+                padding:
+                    25px 18px;
+            }
+
+
+            /* WHY */
+
+            .why-section {
+
+                padding:
+                    30px 20px;
+            }
+
+
+            .why-section h2 {
+
+                font-size: 27px;
+            }
+
+
+            .why-section p {
+
+                font-size: 14px;
+
+                line-height: 1.7;
+            }
+
+        }
+
+
+        /* ========================================
+           SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 480px) {
+
+            .nav {
+
+                min-height: 60px;
+
+                padding:
+                    9px 4%;
+            }
+
+
+            .menu-toggle {
+
+                width: 35px;
+
+                height: 35px;
+
+                font-size: 22px;
+            }
+
+
+            .logo img {
+
+                width: 37px;
+
+                height: 37px;
+            }
+
+
+            .company h2 {
+
+                font-size: 16px;
+            }
+
+
+            .about-hero {
+
+                padding:
+                    38px 5% 30px;
+            }
+
+
+            .about-hero h1 {
+
+                font-size: 40px;
+            }
+
+
+            .about-hero h2 {
+
+                font-size: 19px;
+            }
+
+
+            .about-hero p {
+
+                font-size: 14px;
+            }
+
+
+            .intro-image {
+
+                height: 200px;
+            }
+
+
+            .section-title {
+
+                font-size: 25px;
+            }
+
+
+            .offer-grid {
+
+                gap: 10px;
+            }
+
+
+            .offer-item {
+
+                min-height: 95px;
+
+                padding:
+                    17px 5px;
+            }
+
+
+            .offer-item i {
+
+                font-size: 24px;
+            }
+
+
+            .offer-item span {
+
+                font-size: 12px;
+            }
+
+
+            .founder-card h3,
+            .team-card h3 {
+
+                font-size: 22px;
+            }
+
+        }
+
+
+        /* ========================================
+           VERY SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 360px) {
+
+            .logo img {
+
+                width: 34px;
+
+                height: 34px;
+            }
+
+
+            .company h2 {
+
+                font-size: 14px;
+            }
+
+
+            .about-hero h1 {
+
+                font-size: 36px;
+            }
+
+
+            .about-hero h2 {
+
+                font-size: 17px;
+            }
+
+
+            .offer-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+
+    <nav class="nav">
+
+
+        <!-- LEFT AREA -->
+
+        <div class="left-area">
+
+
+            <!-- HAMBURGER -->
+
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- LOGO -->
+
+            <div class="companylogo">
+
+
+                <div class="logo">
+
+                    <img
+                        src="Images/company logo.jpeg"
+                        alt="Powfect Logo"
+                    >
+
+                </div>
+
+
+                <div class="company">
+
+                    <h2>
+                        POWFECT
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- NAV LINKS -->
+
+        <div
+            class="navhome"
+            id="navLinks"
+        >
+
+
+            <div class="nav1">
+
+                <a href="home.html">
+                    Home
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="products.html">
+                    Products
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="Blog.html">
+                    Blogs
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a
+                    href="about.html"
+                    class="active"
+                >
+                    About Us
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="nav1">
+
+                <a href="my-orders.html">
+                    My Orders
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </nav>
+
+
+    <!-- ========================================
+         ABOUT HERO
+    ======================================== -->
+
+    <section class="about-hero">
+
+        <h1>
+            About Us
+        </h1>
+
+        <h2>
+            Welcome to Powfect
+        </h2>
+
+        <p>
+            A place created with love, care and comfort
+            for every beloved pet.
+        </p>
+
+    </section>
+
+
+    <!-- ========================================
+         MAIN ABOUT CONTENT
+    ======================================== -->
+
+    <main class="about-container">
+
+
+        <!-- ====================================
+             INTRO
+        ==================================== -->
+
+        <section class="intro-section">
+
+
+            <div class="intro-image">
+
+                <img
+                    src="Images/adoption.jfif"
+                    alt="Happy Pets"
+                >
+
+            </div>
+
+
+            <div class="intro-content">
+
+                <h2 class="section-title">
+                    Who We Are
+                </h2>
+
+                <p>
+                    Powfect is a pet-care platform created
+                    to make everyday pet care simple,
+                    comfortable and convenient.
+                </p>
+
+                <p>
+                    We bring together useful pet-care
+                    services and essential pet products
+                    in one friendly place.
+                </p>
+
+                <p>
+                    From everyday care and grooming to
+                    adoption, veterinary support and
+                    training, Powfect is designed around
+                    the needs of pets and the people who
+                    love them.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ====================================
+             MISSION / VISION / VALUES
+        ==================================== -->
+
+        <section class="info-grid">
+
+
+            <!-- MISSION -->
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+                    To make pet care easier and more
+                    accessible while encouraging people
+                    to provide their pets with the love,
+                    care and attention they deserve.
+                </p>
+
+            </div>
+
+
+            <!-- VISION -->
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-eye"></i>
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+                    To create a trusted and friendly
+                    pet-care platform where every pet
+                    can enjoy a healthier, happier and
+                    more comfortable life.
+                </p>
+
+            </div>
+
+
+            <!-- VALUES -->
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-paw"></i>
+
+                <h3>
+                    Our Values
+                </h3>
+
+                <p>
+                    Love, responsibility, kindness and
+                    commitment are at the heart of
+                    everything we create for pets and
+                    their families.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ====================================
+             WHAT WE OFFER
+        ==================================== -->
+
+        <section class="offer-section">
+
+
+            <h2 class="offer-title">
+                What We Offer
+            </h2>
+
+
+            <div class="offer-grid">
+
+
+                <div class="offer-item">
+
+                    <i class="fa-solid fa-paw"></i>
+
+                    <span>
+                        Pet Care
+                    </span>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <i class="fa-solid fa-house-circle-check"></i>
+
+                    <span>
+                        Adoption
+                    </span>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <i class="fa-solid fa-hand-holding-medical"></i>
+
+                    <span>
+                        Veterinary
+                    </span>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <i class="fa-solid fa-shield-dog"></i>
+
+                    <span>
+                        Training
+                    </span>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <i class="fa-solid fa-basket-shopping"></i>
+
+                    <span>
+                        Pet Products
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ====================================
+             FOUNDER & TEAM
+        ==================================== -->
+
+        <section class="founder-section">
+
+
+            <!-- FOUNDER -->
+
+            <div class="founder-card">
+
+                <i class="fa-solid fa-user"></i>
+
+                <h3>
+                    Founder
+                </h3>
+
+                <p>
+                    <strong>
+                        Sarankumar.S
+                    </strong>
+                </p>
+
+                <p>
+                    The founder behind the idea of
+                    Powfect, created with the goal of
+                    bringing pet care, services and
+                    products together in one place.
+                </p>
+
+            </div>
+
+
+            <!-- TEAM -->
+
+            <div class="team-card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>
+                    Our Team
+                </h3>
+
+                <p>
+                    <strong>
+                        Powfect Family
+                    </strong>
+                </p>
+
+                <p>
+                    A team built around one simple idea:
+                    making pet care more loving,
+                    convenient and comfortable for
+                    every pet and their family.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ====================================
+             WHY POWFECT
+        ==================================== -->
+
+        <section class="why-section">
+
+            <h2>
+                Why Powfect?
+            </h2>
+
+            <p>
+                Because pets are more than just animals —
+                they are part of our family. Powfect is
+                created to bring love, care, comfort and
+                convenience together so pet parents can
+                give their beloved companions the care
+                they deserve.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026
+            <span>Powfect</span>
+            . All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ABOUT JAVASCRIPT -->
+
+    <script src="about.js"></script>
+
+
+</body>
+
+</html>
